@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery</title>
+    <style>
+    </style>
+    <script src='jquery.js'></script>
+    <script>
+        onload=function() {
+            subrayar();
+        }
+
+        function subrayar(){
+            $("#selected-plays li:contains('Henry')").css({"text-decoration":"underline"});
+        }
+    </script>
+</head>
+
+<body>
+    <!--Dado el siguiente código crea una función que subraye todos los hijos 
+        li del elemento con id “selected-plays” que contengan el texto “Henry”-->
+    <h1>DEMO:</h1>
+    <ul id="selected-plays">
+        <li>Comedies
+            <ul>
+                <li><a href="/asyoulikeit/">As You Like It</a></li>
+                <li>All's Well That Ends Well</li>
+                <li>A Midsummer Night's Dream</li>
+                <li>Twelfth Night</li>
+            </ul>
+        </li>
+        <li>Tragedies
+            <ul>
+                <li><a href="hamlet.pdf">Hamlet</a></li>
+                <li>Macbeth</li>
+                <li>Romeo and Juliet</li>
+            </ul>
+        </li>
+        <li>Histories
+            <ul>
+                <li>Henry IV (<a href="mailto:henryiv@king.co.uk">email</a>)
+                    <ul>
+                        <li>Part I</li>
+                        <li>Part II</li>
+                    </ul>
+                <li><a href="http://www.shakespeare.co.uk/henryv.htm">Henry V</a></li>
+                <li>Richard II</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

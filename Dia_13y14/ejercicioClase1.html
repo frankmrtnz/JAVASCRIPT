@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function direccionar(){
+            var texto = document.getElementById("caja1").value; 
+            if(texto.trim() > 0){
+                event.preventDefault();  //No hace la opción por defecto
+            }
+        }
+    </script>
+
+</head>
+<body>
+    
+<input type="text" id="caja1">
+<a href="https://www.as.com" onclick="direccionar()">Ir al AS</a>
+
+</body>
+</html>

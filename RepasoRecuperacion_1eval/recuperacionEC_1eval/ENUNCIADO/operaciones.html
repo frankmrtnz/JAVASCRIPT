@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #titulo {
+      width: 1000px;
+      height: 80px;
+      text-align: center;
+    }
+
+    #accion,
+    #terror,
+    #comedia {
+      width: 300px;
+      float: right;
+      border: 2px solid grey;
+    }
+
+    #tarea,
+    #ranking {
+      border: 2px solid red;
+      width: 250px;
+      height: 220px;
+    }
+
+    #factura {
+      border: 2px solid black;
+      overflow: auto;
+      width: 250px;
+      max-height: 300px;
+      font-size: 0.875em;
+    }
+
+    h3 {
+      position: sticky;
+      text-align: center;
+    }
+
+    #central {
+      position: absolute;
+      top: 100px;
+      left: 280px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #titulo img {
+      height: 70px;
+    }
+
+    #central img,
+    img.centrada {
+      height: 100px;
+      width: 100px;
+      display: block;
+      margin: auto;
+    }
+
+    img.anuncio {
+      float: right;
+      width: 150px;
+      height: 150px;
+    }
+
+    .conborde {
+      border: 4px solid black;
+    }
+
+    div.centrada {
+      width: 400px;
+      position: absolute;
+      background-color: white;
+      text-align: center;
+      font-weight: bold;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+
+    #terror,
+    #comedia,
+    #accion {
+      height: 500px;
+      overflow-y: scroll;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+    }
+
+    td {
+      height: 100px;
+    }
+  </style>
+  <script src="jquery.js"></script>
+  <script src="datos.js"></script>
+  <script src="operaciones.js"></script>
+</head>
+
+<body>
+  <input type="hidden">
+  <input type="hidden">
+  <div style="display: none;">
+    <img src="" alt="">
+    <select></select>
+    <select></select>
+  </div>
+  <div id="titulo">
+    <h1> CINEFILOS: IES EL CAÑAVERAL</h1>
+    <h3> OPERACIONES REALIZADAS</h3>
+  </div>
+  <div id="central">
+    <br>
+    <label>Operaciones</label><select>
+      <option value="-1">Escoge una operación</option>
+      <option value="likes">Ver likes</option>
+      <option value="dislikes">Ver dislikes</option>
+      <option value="comentarios">Ver comentarios</option>
+      <option value="todas">Ver todas</option>
+    </select>
+    <label>Peliculas</label><select>
+      <option value="-1">Escoge una pelicula</option>
+    </select>
+    <br><br>
+    <table>
+      <thead>
+        <tr>
+          <th>Pelicula</th>
+          <th>Imagen</th>
+          <th>Operación</th>
+          <th>Datos</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

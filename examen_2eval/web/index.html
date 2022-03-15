@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <title>WEBADMIN</title>
+  <link rel="stylesheet" href="/css/comun.css">
+  <link rel="shortcut icon" href="#">
+  <script src="jquery.js"></script>
+  <script src="modulo.js" type="module"></script>
+  <script src="datos.js"></script>
+  <!-- <script src="index.js"></script> -->
+</head>
+<body translate="no" >
+  <div id="container">
+    <nav>
+        <ul>
+            <li><a href="index.html">General</a></li>
+            <li><a href="#">Acciones Servidor<i class="down"></i></a>
+            <!-- Primer Menu Desplegable -->
+            <ul>
+                <li><a href="consultaSO.html">Consulta SO</a></li>
+                <li><a href="reiniciarSO.html">Reinicio</a></li>
+                <li><a href="apagarSO.html">Apagado</a></li>
+            </ul>        
+            </li>
+	        <li><a href="">Recarga</i></a>
+                <li><a href="#">Acciones BBDD <i class="down"></i></a>
+             <!-- Primer Menu Desplegable -->
+            <ul>
+                <li><a href="#">Arrancar</a></li>
+                <li><a href="#">Parar</a></li>
+                <li><a href="#">Consultar</a>
+            	 <!-- Segudo Menu Desplegable -->
+                <ul>
+                    <li><a href="#">Ver</a></li>
+                    <li><a href="#">Modificar</a></li>
+                    <li><a href="#">Otros</a>
+                         <!-- Tercer Menu Desplegable -->
+                        <ul>
+                            <li><a href="#">opcion1</a></li>
+                            <li><a href="#">opcion2</a></li>
+                            <li><a href="#">opcion3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+            </li>
+            <li><a href="#">Ayuda</i></a></li>
+        </ul>
+    </nav>
+    <div id="login">
+      <p>LOGIN:</p>
+      <span>Usuario:</span><input type="text" size=10 disabled><br>
+      <span>Clave:</span><input type="password" size=10 disabled><br>	  
+      <button type="button">VALIDAR</button><br>
+    </div>
+    <div id="central">
+      <img src="" alt="">
+      <p>
+        <label>USUARIOS DEL SERVIDOR<label>
+        <input type="text" name="servidor" value="AWS" size=8>
+        <button type="button" name="Consultar">CONSULTAR</button>
+      </p>
+    </div>
+    <div id="usuarios">
+    </div>
+    <footer>
+      <p><a target="blank" href="https://www.educa2.madrid.org/web/iescanaveral">IES EL CAÑAVERAL</a></p>
+    </footer>
+</div>
+</body>

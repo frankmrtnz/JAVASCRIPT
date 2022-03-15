@@ -1,0 +1,43 @@
+// Otro ejemplo más simple del ejercicio8 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            border: 2px solid black;
+            width: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var i = 0;
+            document.getElementById("boton1")
+                    .addEventListener("click",mostrarMensaje);
+            document.getElementById("boton1").datoNecesario=i;  //Le asignamos la propiedad que queramos
+            
+            i = 10000;
+            document.getElementById("boton2")
+                    .addEventListener("click",mostrarMensaje);        
+            document.getElementById("boton2").datoNecesario=i;
+            
+            i = 1000000;
+        }
+
+        function mostrarMensaje(texto) {
+            alert(event.target.datoNecesario);  //1ªFORMA
+            alert(this.datoNecesario);      //2ªFORMA (más legible)
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <button id="boton1">Botón 1</button>
+        <button id="boton2">Botón 2</button>
+    </p>
+</body>
+</html>

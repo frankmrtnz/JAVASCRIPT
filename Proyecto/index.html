@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1-Login</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        body{
+            background-color: darkslateblue;
+        }
+
+        header{
+            text-align: center;
+            padding: 20px;
+            background-color: ghostwhite;
+            color: darkslateblue;
+        }
+
+        main{
+            padding: 12% 40%;
+            color: ghostwhite;
+        }
+
+        main > p{
+            padding: 8px;
+            text-align: center;
+        }
+
+        button{
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0px;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        footer{
+            /*border: 1px solid grey;*/
+            background-color: black;
+            color: antiquewhite;
+            clear: both;
+            position: fixed;
+            bottom: 0px;
+            width: 101%;
+            height: 25px;
+            text-align: center;
+            font-size: small;
+            padding-top: 6px;
+            /*font-family: "Montserrat";*/
+            font-size: 10px;
+            margin-left: -8px;
+        }
+    </style>
+    <script>
+
+        function validarAcceso(){
+          var user = document.getElementById("txtUsuario").value;
+          var pass = document.getElementsByTagName("input")[1].value;
+            if(user=="root" && pass=="1234") {
+                location.href="aterrizaje.html";
+            } else {
+                alert("Usuario y/o clave erronea");
+            }
+        }
+
+        /*var mostrarSaludo = function(){
+        }                Otra manera de poner la function    */
+        /*function mostrarSaludo(mensaje){
+            //alert("HOLA");
+            alert(mensaje);
+            //console.log(mensaje);   //Muestra el mensaje por consola(Inspeccionar)
+        }*/
+        
+    </script>
+
+    <script src="login.js"></script>
+</head>
+<body>
+    <header>
+        <h1>ACCESO AL SISTEMA - LOGIN</h1>
+    </header>
+    <main>
+        <p>Usuario: <input type="text" id="txtUsuario" placeholder="Introduce usuario"></p>
+        <p>Clave: <input type="password" placeholder="Introduce clave"></p>
+        <p>
+            <button type="submit" onclick="validarAcceso()">ACCEDER</button>
+            <button type="submit" >CANCELAR</button>
+        </p>
+    </main>
+    <footer>
+        Copyright® - Derechos reservados - Francisco Martínez Martín - 2ºDAW
+    </footer>
+</body>
+</html>
+
+
+

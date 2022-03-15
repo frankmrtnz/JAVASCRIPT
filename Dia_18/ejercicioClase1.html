@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1 {
+        background-color: blue;
+    }
+</style>
+<script>
+
+    //TEORÍA: COMENTARIOS PARA LA PRACTICA 5
+
+    var ventana;    //Variable Global
+
+    window.onload = function () {
+        document.getElementById("btnIframe").addEventListener("click",mostrarIframe);
+        document.getElementById("btnDiv").addEventListener("click",mostrarDiv);
+        document.getElementById("btnVentana").addEventListener("click",mostrarVentana);
+        document.getElementById("btnIframe2").addEventListener("click",cerrarIframe);
+        document.getElementById("btnDiv2").addEventListener("click",cerrarDiv);
+        document.getElementById("btnVentana2").addEventListener("click",cerrarVentana);
+    }
+    
+
+    function mostrarIframe() {
+        var codigo = "<h1 onclick='parent.mostrarMensaje()'>HOLA</h1>";  //Importante el parent.mostrarMensaje() -> (ya que son dos págs,una dentro de otra)
+        /* USO DEL .srcdoc = codigoHTML */
+        document.getElementsByTagName("iframe")[0].srcdoc = codigo; 
+        /* USO DEL .src = "url" */
+        //document.getElementsByTagName("iframe")[0].src = "http://www.madrid.org";
+
+    }
+
+
+    function mostrarDiv() {
+        var codigo = "<h1 >HOLA</h1>";
+        document.getElementById("div1").innerHTML = codigo;
+        document.getElementsByTagName("div")[0].getElementsByTagName("h1")[0].addEventListener("click",mostrarMensaje);
+
+    }
+
+
+    function mostrarVentana() {
+        var codigo = "<h1>HOLA</h1>";
+        /* Como ponerlo con el onclick en este caso */
+        //var codigo = "<h1 onclick='window.opener.mostrarMensaje()'>HOLA</h1>";
+        ventana = window.open("","","width=100,height=100,toolbar=no");   //Variable Global
+        ventana.document.body.innerHTML = codigo;
+        ventana.document.getElementsByTagName("h1")[0].addEventListener("click",mostrarMensaje);
+    }
+
+
+    function mostrarMensaje(){
+        alert("Has hecho click");
+    }
+
+
+    function cerrarIframe() {
+        document.getElementsByTagName("iframe")[0].style.display = "none";
+    }
+
+
+    function cerrarDiv() {
+        document.getElementsByTagName("div")[0].style.display = "none"; 
+    }
+
+
+    function cerrarVentana() {
+        ventana.close();
+    }
+
+
+</script>
+<body>
+    <iframe id="iframe1"></iframe>
+    <div id="div1"></div>
+    <button type="button" id="btnIframe">Mostrar Iframe</button>
+    <button type="button" id="btnDiv">Mostrar Div</button>
+    <button type="button" id="btnVentana">Mostrar Ventana</button>
+    <br>
+    <button type="button" id="btnIframe2">Cerrar Iframe</button>
+    <button type="button" id="btnDiv2">Cerrar Div</button>
+    <button type="button" id="btnVentana2">Cerrar Ventana</button>
+</body>
+</html>

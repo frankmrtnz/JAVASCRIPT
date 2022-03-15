@@ -1,0 +1,44 @@
+
+<html>
+
+<head>
+    <title>DOM</title>
+    <script>
+        function cambiarIdioma(idiomaElegido) {
+            var fecha = new Date();
+            fecha.setTime(fecha.getTime() + (7 * 24 * 60 * 60 * 1000));
+            document.cookie = 'idioma=' + idiomaElegido + ';expires=' + fecha.toUTCString();
+        }
+
+        function cambiarNombre(nombreElegido) {
+            var fecha = new Date();
+            fecha.setTime(fecha.getTime() + (7 * 24 * 60 * 60 * 1000));
+            document.cookie = 'nombre=' + nombreElegido + ';expires=' + fecha.toUTCString();
+        }
+
+        function mostrarCookie(nombreCookie) {
+            var cookies = document.cookie.split(";");
+            var i = 0;
+            while (i < cookies.length && cookies[i].split("=")[0].trim() != nombreCookie) i++;
+            if (i < cookies.length) alert(cookies[i]);
+        }
+
+    </script>
+</head>
+
+<body>
+    <label for='idioma'>Idioma: </label>
+    <select id='idioma' onchange="cambiarIdioma(this.value)">
+        <option value='indiferente'>Indiferente</option>
+        <option value='castellano'>Castellano</option>
+        <option value='ingles'>Ingl&eacute;s</option>
+    </select>
+    <br />
+    Nombre: <input id="nombre" type="text"> <br>
+    <a href="javascript:cambiarNombre(document.getElementById('nombre').value);">Grabar nombre</a>
+    <button type='button' onclick='mostrarCookie("idioma");'>Ver cookie idioma</button>
+    <button type='button' onclick='mostrarCookie("nombre");'>Ver cookie nombre</button>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <title>Gestiona IES</title>
+  <link rel="stylesheet" href="./css/aterrizaje.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>  <!--Lo obtenemos de JQuery CDN y copiamos direccion de enlace-->
+  <script src="./js/claseEmpleado.js"></script>
+  <script src="./js/empleados.js"></script>
+</head>
+<body translate="no" >
+  <div id="container">
+    <nav>
+        <ul>
+            <li><a href="aterrizaje.html">General</a></li>
+            <li><a href="empleados.html">Empleados <i class="down"></i></a>
+            <!-- Primer Menu Desplegable -->
+            <ul>
+                <li><a href="#">Alta</a></li>
+                <li><a href="#">Modificación</a></li>
+            </ul>        
+            </li>
+	        <li><a href="#">Clientes <i class="down"></i></a>
+            <ul>
+                <li><a href="#">Alta</a></li>
+                <li><a href="#">Modificación</a></li>
+                <li><a href="#">Facturación</a></li>
+            </ul> 
+            <li><a href="proyectos.html">Proyectos <i class="down"></i></a>
+             <!-- Primer Menu Desplegable -->
+            <ul>
+                <li><a href="#">Alta</a></li>
+                <li><a href="#">Lista</a></li>
+                <li><a href="#">Consulta</a>
+            	 <!-- Segudo Menu Desplegable -->
+                <ul>
+                    <li><a href="#">Ver</a></li>
+                    <li><a href="#">Modificar</a></li>
+                    <li><a href="#">Otros</a>
+                         <!-- Tercer Menu Desplegable -->
+                        <ul>
+                            <li><a href="#">opcion1</a></li>
+                            <li><a href="#">opcion2</a></li>
+                            <li><a href="#">opcion3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+            </li>
+            <li><a href="#">Ayuda</i></a></li>
+           
+        </ul>
+    </nav>
+    <div id="filtrar" class="filtrado">
+        <span>Filtrar por:</span>
+        <input type="text" id="textoFiltrar">
+        <button type="button" id="btnFiltrar" onclick="filtrar()">Filtrar</button>
+    </div>
+   <div id="central">
+   </div>
+   <br>
+   <div id="acciones">
+    <button type="button" id="btnCancelar">CANCELAR</button>
+    <button type="button" id="btnOrdenar">ORDENAR</button>
+    <button type="button" id="btnNuevo">NUEVO</button>
+    <button type="button" id="btnEliminar">ELIMINAR</button>
+    
+   </div>
+
+  <footer><a target="blank" href="https://www.educa2.madrid.org/web/iescanaveral">IES EL CAÑAVERAL</a></footer>
+</div>
+  
+  
+  
+  
+  
+
+</body>

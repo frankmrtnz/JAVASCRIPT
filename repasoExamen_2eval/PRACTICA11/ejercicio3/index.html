@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Practica 11</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript">
+
+        window.onload = function () {
+            $("<div></div>").appendTo("body").load("ingredientes.html #datos");
+        }
+
+        async function consultar() {
+            /*$.ajax({
+            url: "ejercicio1.php",
+            dataType: "text",
+            type: "GET",
+            success: function(respuesta){
+            document.getElementById('estado').value = respuesta;
+            },
+            error: function(xhr, status){
+            alert("La peticion Fallo");
+            }});*/
+            $.post("ejercicio3.php",
+                { cocinero: document.getElementById("cocinero").value },
+                function (respuesta) {
+                    document.getElementById('estado').value = respuesta;
+                });
+        }
+    </script>
+</head>
+
+<body>
+
+    <form onsubmit='return false'>
+        <select name='ingredientes' id="ingredientes">
+        </select>
+        <p>Cocinero: <input type="text" name="cocinero" id="cocinero" /></p>
+        <p>Estado: <input type="text" name="estado" id="estado" /></p>
+        <button onclick='consultar();'>Consultar</button>
+        <button>Enviar</button>
+    </form>
+</body>
+
+</html>

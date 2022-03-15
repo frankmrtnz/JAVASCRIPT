@@ -1,0 +1,63 @@
+// Ejercicio 3: control del progreso de las peticiones ajax
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>AJAX</title>
+
+    <style></style>
+
+    <script>
+
+        var xhr;
+
+        function enviarPeticionAJAX(evento) {
+            evento.target.disabled = true;
+            xhr = new XMLHttpRequest();
+            xhr.addEventListener('readystatechange', gestionarRespuesta, false);
+            xhr.addEventListener('abort', function () { console.log('abort'); evento.target.disabled = false; });
+            xhr.addEventListener('load', function () { console.log('load'); evento.target.disabled = false; });
+            xhr.addEventListener('error', function () { console.log('error'); evento.target.disabled = false; });
+            xhr.timeout = '15000';
+            xhr.addEventListener('timeout', function () { console.log('timeout'); evento.target.disabled = false; });
+            xhr.addEventListener('progress', gestionarProgreso, false);
+            xhr.addEventListener('loadstart', function () { console.log('timeout'); evento.target.disabled = false; });
+            xhr.open('GET', 'ajax.php', true);
+            xhr.send(null);
+        }
+
+        function gestionarRespuesta(evento) {
+            console.log('readystatechange: ' + evento.target.readyState);
+            if (evento.target.readyState == 4 && evento.target.status == 200) {
+                document.getElementById('encabezados').innerHTML = evento.target.getAllResponseHeaders();
+                document.getElementById('contenido').innerHTML = evento.target.responseText;
+                document.getElementById('boton').disabled = false;
+            }
+        }
+
+        function gestionarProgreso(evento) {
+            console.log('progress: ' + (evento.lengthComputable ? evento.loaded / evento.total * 100 + '%' : 'desconocido'));
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <button id='boton' type='button' onclick='enviarPeticionAJAX(event);'>ENVIAR PETICI&Oacute;N</button>
+
+    <h1>Encabezados respuesta</h1>
+
+    <div id='encabezados'></div>
+
+    <h1>Contenido respuesta</h1>
+
+    <div id='contenido'></div>
+
+</body>
+
+</html>

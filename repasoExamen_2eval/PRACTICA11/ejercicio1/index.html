@@ -1,0 +1,52 @@
+<!--Crea una página html con un formulario con 1 select (INGREDIENTES), 
+    2 cajas de texto (COCINERO y ESTADO) y 2 botones (CONSULTAR y ENVIAR). 
+    Al pulsar el botón CONSULTAR debe llamar a la página php anterior y cargar 
+    el valor devuelto en la caja ESTADO
+
+DEBERAS UTILIZAR EL MÉTODO $.ajax()
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            $("<div></div>").appendTo("body").load("ingredientes.html #datos");
+        }
+
+        function consultar() {
+            $.ajax({
+                url: "ejercicio1.php",
+                dataType: "text",
+                type: "GET",
+                success: function(respuesta){
+                    document.getElementById('estado').value = respuesta;
+                },
+                error: function(xhr, status){
+                    alert("La peticion Fallo");
+                }
+            });
+            // $.post("ejercicio3.php",
+            //     { cocinero: document.getElementById("cocinero").value },
+            //     function (respuesta) {
+            //         document.getElementById('estado').value = respuesta;
+            //     });
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit='return false'>
+        <select name='ingredientes' id="ingredientes">
+        </select>
+        <p>Cocinero: <input type="text" name="cocinero" id="cocinero" /></p>
+        <p>Estado: <input type="text" name="estado" id="estado" /></p>
+        <button onclick='consultar();'>Consultar</button>
+        <button>Enviar</button>
+    </form>
+</body>
+
+</html>

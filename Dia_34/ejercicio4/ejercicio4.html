@@ -1,0 +1,79 @@
+// ejercicio 4: enviar datos al servidor mediante GET
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>AJAX</title>
+
+    <style></style>
+
+    <script>
+
+        var xhr;
+        var alumno;
+        var materia;
+        var calificacion;
+
+        function enviarPeticionAJAX(evento) {
+            if (alumno.value != '' && materia.value != '') {
+                alumno.disabled = true;
+                materia.disabled = true;
+                xhr = new XMLHttpRequest();
+                xhr.addEventListener('readystatechange', gestionarRespuesta, false);
+                xhr.open('GET', 'ajax.php?alumno=' + alumno.value + '&materia=' + materia.value, true);
+                xhr.send(null);
+            }
+
+        }
+
+        function gestionarRespuesta(evento) {
+            if (evento.target.readyState == 4 && evento.target.status == 200) {
+                alumno.disabled = false;
+                materia.disabled = false;
+                calificacion.value = evento.target.responseText;
+            }
+
+        }
+
+        document.addEventListener('readystatechange', inicializar, false);
+
+        function inicializar() {
+            if (document.readyState == 'complete') {
+                alumno = document.getElementById('alumno');
+                materia = document.getElementById('materia');
+                calificacion = document.getElementById('calificacion');
+                alumno.addEventListener('change', enviarPeticionAJAX, false);
+                materia.addEventListener('change', enviarPeticionAJAX, false);
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <label for='alumno'>Alumno: </label>
+    <select id='alumno'>
+        <option value='' selected='selected'>--Elija un alumno--</option>
+        <option>Juan F&eacute;lix Mateos</option>
+        <option>Ana Irene Palma</option>
+    </select>
+
+    <label for='materia'>Materia: </label>
+    <select id='materia'>
+        <option value='' selected='selected'>--Elija una materia--</option>
+        <option>Lenguaje</option>
+        <option>Matem&aacute;ticas</option>
+    </select>
+
+    <label for='calificacion'>Calificaci&oacute;n: </label>
+    <input type='text' readonly='readonly' id='calificacion' />
+
+</body>
+
+</html>

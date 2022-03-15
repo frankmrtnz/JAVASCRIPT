@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var carrito=[];
+window.onload=function(){
+    var compra="";
+    var texto=document.cookie;
+    var trozostexto=texto.split(";");
+    for(i=0;i<trozostexto.length;i++){
+        var partes=trozostexto[i].split("=");
+        if (partes[0].trim()=="compra") compra=partes[1];
+    }
+    carrito = JSON.parse(compra);
+    mostrarCarrito();
+}
+function mostrarCarrito(){
+   var capaCarrito=document.body;
+   var total,totaltotal=0;
+   for(i=0;i<carrito.length;i++){  
+       total= parseInt(carrito[i].precio)*parseInt(carrito[i].cantidad);
+       totaltotal+=total;
+      var parrafo=document.createElement("p");
+       capaCarrito.appendChild(parrafo);
+       var img=document.createElement("img");
+       img.src=carrito[i].imagen;
+       img.classList.add("reducida");
+       parrafo.appendChild(img);
+       var span=document.createElement("span");
+       span.appendChild(document.createTextNode("  " + carrito[i].nombre));
+       parrafo.appendChild(span);
+       var span=document.createElement("span");
+       span.appendChild(document.createTextNode(" " +carrito[i].cantidad));
+       parrafo.appendChild(span);
+       var span=document.createElement("span");
+       span.appendChild(document.createTextNode("  " + total));
+       parrafo.appendChild(span);
+    }
+    var parrafo=document.createElement("p");
+    capaCarrito.appendChild(parrafo);
+     var span=document.createElement("span");
+     span.appendChild(document.createTextNode("TOTAL " + totaltotal));
+     parrafo.appendChild(span);
+}
+</script>
+</head>
+<body>
+CARRITO FINAL
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table class="table1">
+        <h2>Tabla 1</h2>
+        <tr>
+            <td>1.1</td>
+            <td>1.2</td>
+            <td>1.3</td>
+        </tr>
+        <tr>
+            <td>2.1</td>
+            <td>2.2</td>
+            <td>2.3</td>
+        </tr>
+        <tr>
+            <td>3.1</td>
+            <td>3.2</td>
+            <td>3.3</td>
+        </tr>
+    </table>
+    <table class="table2">
+        <h2>Tabla 2</h2>
+        <tr>
+            <td>1.1</td>
+            <td>1.2</td>
+            <td>1.3</td>
+        </tr>
+        <tr>
+            <td>2.1</td>
+            <td>2.2</td>
+            <td>2.3</td>
+        </tr>
+        <tr>
+            <td>3.1</td>
+            <td>3.2</td>
+            <td>3.3</td>
+        </tr>
+    </table>
+    
+    <hr>
+
+    <img src="./images/foto1.jpeg" alt="imagen1" id="img1">
+    <img src="./images/foto2.jpeg" alt="imagen2" id="img2">
+    <img src="./images/foto3.jpeg" alt="imagen3" id="img3">
+
+    <hr>
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente natus perferendis eaque suscipit perspiciatis vitae aspernatur ipsum eligendi at mollitia veniam dolorem nobis, quisquam illo cum eos inventore labore facilis.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni tempore, inventore voluptates harum esse, dicta accusamus doloribus adipisci, necessitatibus fugiat consectetur consequuntur eveniet voluptate odit labore. Illo pariatur iste fugit?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum impedit culpa quibusdam optio deleniti reiciendis id, sapiente repellendus corporis dicta veniam earum, placeat unde ad voluptatum soluta consectetur distinctio recusandae.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis error illo impedit id corporis, quis dignissimos totam dicta, ratione omnis aperiam iure odit accusamus eius blanditiis earum maiores natus consectetur?</p>
+
+    <hr>
+
+    <div class="primerDiv">
+        <!--Esto es un comentario de prueba para el childNodes-->
+        <form action="">
+            <input type="radio" name="radioPrueba" value="1">1
+            <input type="radio" name="radioPrueba" value="2">2
+        </form>
+    </div>
+    
+    <br>
+    <hr>
+    
+    <div class="segundoDiv">
+        Texto: <input type="text">
+        Contraseña: <input type="password">
+        <button type="submit">Enviar</button>
+    </div>
+
+    <br>
+    <hr>
+
+    <button type="button" onclick="cambiarColor()">Cambiar color primer y último parrafo</button>
+    <br>
+    <button type="button" onclick="agrandarFoto()">Agrandar foto 1ª imagen</button>
+
+    <br>
+    <hr>
+
+
+
+
+    <script>
+        //Pintamos lo que esta en el BODY
+        console.log(document.body.innerHTML);
+
+        //Pintamos lo que esta en el HEAD
+        console.log(document.head.innerHTML);
+
+        //Mostramos codigo de la primera imagen
+        console.log(document.getElementById("img1"));
+
+        //Mostramos valor del radioPrueba (será undefined)
+        console.log(document.getElementsByName("nombre").value);
+
+        //Accedemos al primer input radioPrueba (Manera antigua, no es recomendable)
+        console.log(document.getElementsByTagName("form")[0].getElementsByTagName("input")[1]);  //Mostramos el 2do input
+
+        //QuerySelector Otra forma de acceder al input radioPrueba (LA MEJOR)
+        console.log(document.querySelector("input[type='radio']"));
+
+        //QuerySelectorAll para devolver lista de todas las imgs y parrafos
+        console.log(document.querySelectorAll("img,p").length);
+
+        //Otro ejemplo de querySelectorAll
+        var listaImagenes1 = document.getElementsByTagName("img");  //Devuelve coleccion de nodos vivos solo
+        var listaImagenes2 = document.querySelectorAll("img");  //Devuelve coleccion de nodos muertos y vivos
+        console.log(listaImagenes1);
+        console.log(listaImagenes2);
+        console.log(listaImagenes1.length);
+        console.log(listaImagenes2.length);
+        //Añadimos una imagen nueva y volvemos a mostrar por console el length
+        document.body.appendChild(document.createElement("img"));
+        console.log(listaImagenes1.length);
+        console.log(listaImagenes2.length);
+
+        //Mostramos todos los hijos (etiquetas) del body y del primer form
+        console.log(document.body.children);
+        console.log(document.forms[0].children);
+        
+
+        //Mostramos todos los hijos con comentarios y demás texto (incluido espacios en blanco)
+        console.log(document.body.childNodes);
+        console.log(document.forms[0].childNodes);
+
+        //Mostrar los hermanos
+        console.log(document.body.firstChild);  //Coge etiquetas, comentarios, espacios en blanco y saltos de linea
+        console.log(document.body.firstElementChild);   //Etiquetas
+        console.log(document.body.lastChild);   //Coge etiquetas, comentarios, espacios en blanco y saltos de linea
+        console.log(document.body.lastElementChild);    //Etiquetas
+
+        //Documento -> Primer Form -> Siguiente Hermano -> Ultimo Hijo -> Hermano anterior
+        console.log(document.forms[0].lastChild.previousSibling); 
+
+
+        //Cambiar colo del primer y ultimo parrafo
+        function cambiarColor() {
+            var lista = document.getElementsByTagName("p");
+            lista[0].style.backgroundColor = "grey";
+            lista[lista.length-1].style.backgroundColor = "grey";
+        }
+
+
+        //Agrandar la primera foto el doble
+        function agrandarFoto() {
+            var alto = document.images[0].height;
+            console.log(alto);
+            document.images[0].height = alto*2;
+        }
+
+
+        //Sustituir primer div por el texto "HOLA"
+            //document.getElementsByTagName("div")[0].innerHTML = "HOLA";
+            //document.getElementsByTagName("div")[0].outerHTML = "<h1>ADIÓS</h1>";
+
+
+        //Añadir al texto del primer div  -> insertAdjacentHTML(posicion,texto)
+        //Posiciones: beforebegin, afterbegin, beforeend, afterend
+        document.getElementsByTagName("div")[0].insertAdjacentHTML("beforebegin","<h1>ADIÓS1</h1>");
+        document.getElementsByTagName("div")[0].insertAdjacentHTML("afterbegin","<h1>ADIÓS2</h1>");
+        document.getElementsByTagName("div")[0].insertAdjacentHTML("beforeend","<h1>ADIÓS3</h1>"); 
+        document.getElementsByTagName("div")[0].insertAdjacentHTML("afterend","<h1>ADIÓS4</h1>");     
+    
+
+        /*  createElement(etiqueta)    
+            createTextNode(texto)    
+            y = x.cloneNode(true,false) 
+        */
+        /*
+            padre.appendChild(hijo)    
+            padre.insertBefore(hermano,nuevo)   
+            padre.insertAdjacentElement(posicion,nuevo)
+        */
+        var h1 = document.createElement("h1");
+        h1.innerHTML = "Prueba1";
+        document.body.insertBefore(h1, document.body.firstElementChild);
+        //Clonamos con el cloneNode(true) porque sino machaca el primero
+        document.body.appendChild(h1.cloneNode(true));
+
+
+
+        //Evento que devuelve el estado del documento
+        console.log(document.readyState);   //Saldrá "loading"
+        window.onload = function() {
+            console.log(document.readyState);   //Saldrá "complete"
+        }
+
+    </script>
+    <script defer src="">
+        //Cargar la pagina a partir de cierto punto
+    </script>
+    <script async>
+        //El script se descarga de forma asíncrona, es decir, sin detener el análisis HTML, 
+        // pero una vez descargado, si se detiene para ejecutar el script
+    </script>
+</body>
+</html>

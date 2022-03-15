@@ -1,0 +1,23 @@
+
+[
+    {
+        "nombre": "Fernando",
+        "apellidos": "Garcia Jimenez",
+        "codigoEmpleado": "123",
+        "dni": "12345678A",
+        "edad": 33,
+        "antiguedad": 2010,
+        "puesto": "analista",
+        "foto": "./images/foto1.jpeg"
+    },
+    {
+        "nombre": "Felipe",
+        "apellidos":"Gomez Martinez",
+        "codigoEmpleado": "43",
+        "dni": "12345999A",
+        "edad": 50,
+        "antiguedad": 2000,
+        "puesto": "programador",
+        "foto": "./images/foto2.jpeg"
+    }
+]

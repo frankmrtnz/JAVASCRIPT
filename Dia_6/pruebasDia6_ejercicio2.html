@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="">
+<style>
+    th,td {
+    border: 1px solid black;
+    }
+</style>
+<script>
+var listaMusicalCompleta=new Array();
+
+listaMusicalCompleta.push([1,"Eminen",1000000]);
+listaMusicalCompleta.push([2,"Vetusta Morla",150000]);
+listaMusicalCompleta.push([3,"ACDC",2000000]);
+listaMusicalCompleta.push([4,"Rosalia",150000]);
+listaMusicalCompleta.push([5,"Anthrax",3000]);
+
+//CUANDO LA PÁGINA ESTÉ CARGADA:
+window.onload=function(){
+    cargarTabla(listaMusicalCompleta);
+}
+
+function cargarTabla(lista){
+    var listaFilas = document.getElementsByTagName("tr");
+    while(listaFilas.length != 1){
+        listaFilas[1].remove();   //Borra la lista
+    }
+
+
+    var tabla=document.getElementsByTagName("table")[0];
+
+
+    for(i=0; i<lista.length; i++){
+        var fila=document.createElement("tr");
+        tabla.appendChild(fila);
+            for(j=0; j<lista[i].length; j++){
+                var celda=document.createElement("td");
+                fila.appendChild(celda);
+                celda.appendChild(document.createTextNode(lista[i][j]));
+            }
+    }
+
+
+    /*   //Hecho con forEach
+    lista.forEach(grupo => {
+        var fila=document.createElement("tr");
+        tabla.appendChild(fila);
+            grupo.forEach(datodeGrupo => {
+                var celda=document.createElement("td");
+                fila.appendChild(celda);
+                celda.appendChild(document.createTextNode(datodeGrupo));
+            })
+    });
+    */
+
+}
+
+function ordenarPorPuesto(){
+    
+}
+
+function ordenarPorNombre(){
+    
+}
+
+
+function filtrar(){
+    //Devuelve nuevo Array ---- elemento[1] = Columna "Nombre"
+    var texto = document.getElementsByTagName("input")[0].value;
+    var listaFiltrada = listaMusicalCompleta.filter(elemento => elemento[1].toLowerCase().includes(texto.toLowerCase())); 
+    cargarTabla(listaFiltrada);
+}
+
+
+</script>
+</head>
+<body>
+<table>
+    <tr>
+        <th><a href="javascript:ordenarPorPuesto()" id="lnkOrdenarPorPuesto">PUESTO</a></th>
+        <th><a href="javascript:ordenarPorNombre()" id="lnkOrdenarPorNombre">NOMBRE</a></th>
+        <th>DISCOS VENDIDOS</th>
+    </tr>
+</table>
+<br>
+<input type="text"><button id="btnFiltrar" type="button" onclick="filtrar()">FILTRAR</button>
+</body>
+</html>
+

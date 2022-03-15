@@ -1,0 +1,22 @@
+{
+    "empleados": [
+      {
+        "cod_empleado": 1,
+        "foto": "./images/empleado1.jpg",
+        "nombreyapellidos": "Francisco Martínez",
+        "cargo": "CEO"
+      },
+      {
+        "cod_empleado": 2,
+        "foto": "./images/empleada2.jpg",
+        "nombreyapellidos": "Anastasia Gómez",
+        "cargo": "ADMINISTRADORA"
+      },
+      {
+        "cod_empleado": 3,
+        "foto": "./images/empleado3.jpg",
+        "nombreyapellidos": "Juan Moreno",
+        "cargo": "ATENCIÓN AL CLIENTE"
+      }
+    ]
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tablaDatos {
+            border: 1px solid black;
+            text-align: center;
+        }
+        #tablaDatos td {
+            border: 1px solid black;
+        }
+        #tablaDatos th {
+            border: 1px solid black;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.get("ejercicio4.php", {}, function(datos) {
+                listaDatos = datos.split(";");
+                pintar(listaDatos);
+            });
+        });
+
+        function pintar(lista) {
+            console.log(lista);
+            // var $tabla = $("<table id='tablaDatos'></table>").appendTo("body");
+            var listaRegistros = [];
+            for(let i=0; i<lista.length-1; i++) {
+                listaRegistros.push(lista[i].split("-"));
+                // for(let j=0; j<listaDatosCeldas.length; j++) {
+                //     $("<td></td>").text(listaDatosCeldas[j]).appendTo($fila);
+                // }
+            }
+            console.log(listaRegistros);
+            listaRegistros.forEach(element => {
+                $("<tr></tr>").html("<td>"+element[1]+"</td> <td>"+element[2]+"</td> <td>"+element[3]+"</td> <td>"+element[4]+"</td>").appendTo("table#tablaDatos tbody");  //Con id
+                // $("<tr></tr>").html("<td>"+element[1]+"</td> <td>"+element[2]+"</td> <td>"+element[3]+"</td> <td>"+element[4]+"</td>").appendTo("table.prueba tbody");  //Con class
+                // $("<tr></tr>").html("<td>"+element[1]+"</td> <td>"+element[2]+"</td> <td>"+element[3]+"</td> <td>"+element[4]+"</td>").appendTo("table[name=ejemplo] tbody");  //Con name
+
+            })
+        }
+    </script>
+</head>
+<body>
+    <table id="tablaDatos" class="prueba" name="ejemplo">
+        <thead>
+            <th>PUESTO</th>
+            <th>NOMBRE</th>
+            <th>PUNTOS</th>
+            <th>NACIONALIDAD</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,457 @@
+/* Imports Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Anton', sans-serif;
+}
+
+/*------- NAVBAR -------*/
+.navbar-brand {
+    font-size: 2.7rem;
+    color: red;
+    font-family: 'Anton', sans-serif;
+    text-decoration: none;
+}
+.navbar-brand:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: rgb(10, 10, 94);
+}
+.nav-link:hover {
+    color: red;
+    transition: 0.3s;
+    font-size: 18px;
+}
+
+.nav-item {
+    color: rgb(7, 7, 78);
+    font-weight: 500;
+    padding-right: 45px;
+    padding-left: 20px;
+}
+
+.dropdown-item {
+    color: rgb(10, 10, 94);
+}
+.dropdown-item:hover {
+    color: red;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.btnRegister {
+    border-radius: 20px;
+    margin-left: 40px;
+    height: 52px;
+    width: 130px;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s;
+    background-color: rgb(248, 83, 83);
+}
+.btnRegister:hover {
+    background-color: rgb(214, 11, 11);
+    transition: all 0.4s;
+}
+
+.btnLogin {
+    border-radius: 20px;
+    height: 52px;
+    width: 130px;
+    background-color: transparent;
+    color: rgb(248, 20, 20);
+    outline: none;
+    transition: all 0.4s;
+    border: 2px solid rgb(248, 20, 20);
+}
+.btnLogin:hover {
+    background-color: rgb(214, 11, 11);
+    transition: all 0.4s;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+
+
+/*------- PRINCIPAL -------*/
+.main {
+    background: url(../images/main6.jpg)no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+}
+.main h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgb(248, 63, 63);
+}
+.main input {
+    border-radius: 60px;
+    height: 71px;
+    width: 70%;
+    border: none;
+    outline: none;
+    padding: 15px;
+}
+
+.btnBuscador {
+    border-radius: 60px;
+    height: 70px;
+    width: 70%;
+    background-color: rgb(243, 73, 73);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.btnBuscador:hover {
+    background-color: rgb(214, 11, 11);
+    transition: all 0.4s;
+}
+
+
+
+/*------- CATEGORÍAS -------*/
+.red {
+    color: rgb(248, 63, 63);
+}
+
+.tituloCateg {
+    border: 2px solid rgb(248, 63, 63); 
+    padding: 10px; 
+    /*border-radius: 20px;*/
+}
+.tituloCateg2 {
+    border: 4px solid rgb(7, 7, 78); 
+    padding: 0.5em 5em; 
+    /*border-radius: 20px;*/
+}
+.contenidoTituloCateg1 {
+    text-align: center;
+    margin-top: 4em;
+    margin-bottom: 2em;
+}
+.contenidoTituloCateg2 {
+    text-align: center;
+    margin-top: 11em;
+    margin-bottom: 2em;
+}
+
+
+.categorias h1 {
+    font-size: 3.5rem;
+    color: rgb(7, 7, 78);
+}
+
+.categorias .card:hover {
+    color: rgb(248, 63, 63);
+    cursor: pointer;
+    transition: all 0.4s;
+    box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+}
+
+.btnAllCategories {
+    height: 70px;
+    width: 70%;
+    border: 2px solid rgb(7, 7, 78);
+    border-radius: 60px;
+    background: transparent;
+    color: rgb(7, 7, 78);
+    transition: all 0.4s;
+}
+.btnAllCategories:hover {
+    background: rgb(7, 7, 78);
+    color: white;
+    border: none;
+    outline: none;
+    transition: all 0.4s;
+}
+
+
+
+
+/* ------- CURRÍCULUM ------- */
+.curriculum {
+    background: linear-gradient(rgba(4,11,75,0.71), rgba(4,26,100,0.73)),url(../images/curriculum3.jpg)no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.curriculum h1 {
+    font-size: 3.8rem;
+}
+
+.tituloCV {
+    border: 2px solid rgb(7, 7, 78); 
+    padding: 10px; 
+}
+
+.btnCV {
+    height: 70px;
+    width: 50%;
+    border: 2px solid rgb(7, 7, 78);
+    border-radius: 60px;
+    background: transparent;
+    color: white;
+    transition: all 0.4s;
+}
+.btnCV:hover {
+    background: rgb(7, 7, 110);
+    color: white;
+    border: none;
+    outline: none;
+    transition: all 0.4s;
+}
+
+
+
+
+/*------- CONÓCENOS (Proceso) -------*/
+.imgProceso1 {
+     height: 100px;
+     width: 100px;
+     background: url(../images/proceso1.jpg)no-repeat;
+     background-position: 50%;
+     border-radius: 50%;
+     background-size: 100% auto;
+}
+
+.about1 h1{
+    font-size: 3.5rem;
+    color: rgb(7, 7, 78);
+}
+
+
+.about1 .card {
+    background: whitesmoke;
+}
+.about1 .card:hover {
+    transition: all 0.4s;
+    box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+}
+
+.procesoEmpresa{
+    height: 30em;
+}
+
+.proceso {
+    height: 100px;
+    width: 100px;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+}
+.proceso1 img {
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+}
+
+.enlaceAzul {
+    color: rgb(7, 7, 78);
+}
+
+
+
+
+/*------- CONÓCENOS (Personal) -------*/
+.personal {
+    background: linear-gradient(rgba(4,11,75,0.71), rgba(4,26,100,0.73)),url(../images/empleadosWallpaper.jpg)no-repeat;
+    background-size: cover;
+    height: 55em;
+    width: 100%;
+    color: white;
+}
+
+.avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.infoPersonal {
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.btnContacto {
+    height: 60px;
+    width: 20%;
+    border: 2px solid rgb(7, 7, 78);
+    border-radius: 20px;
+    background: transparent;
+    color: white;
+    transition: all 0.4s;
+}
+.btnContacto:hover {
+    background: rgb(7, 7, 110);
+    color: white;
+    border: none;
+    outline: none;
+    transition: all 0.4s;
+}
+
+
+
+/*------- OFERTAS -------*/
+.contenidoOfertas img {
+    width: 230px;
+    height: 180px;
+}
+
+.btnInscribirse {
+    height: 60px;
+    width: 50%;
+    border-radius: 20px;
+    border: 2px solid rgb(243, 73, 73);
+    background: rgb(243, 73, 73);
+    color: white;
+    margin-top: 10px;
+}
+.btnInscribirse:hover {
+    background: rgb(214, 11, 11);
+    color: white;
+    border: none;
+    outline: none;
+    transition: all 0.4s;
+}
+
+.descripcion {
+    font-size: 14px;
+}
+
+.card {
+    border: 2px solid rgb(7, 7, 78);
+}
+
+.info {
+    height: 7.5em;
+}
+
+.contenidoOrdenarTrabajos {
+    float: right;
+}
+
+.cardOfertas:hover {
+    box-shadow: -1px 4px 20px 10px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -1px 4px 20px 10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 4px 20px 10px rgba(0, 0, 0, 0.75);
+}
+
+
+
+/*------- INSCRIPCIONES -------*/
+.btnEliminarOferta {
+    height: 60px;
+    width: 50%;
+    border-radius: 20px;
+    border: 2px solid rgb(243, 73, 73);
+    background: rgb(243, 73, 73);
+    color: white;
+    margin-top: 10px;
+}
+.btnEliminarOferta:hover {
+    background: rgb(214, 11, 11);
+    color: white;
+    border: none;
+    outline: none;
+    transition: all 0.4s;
+}
+
+
+/*------- CONTACTO -------*/
+.header {
+    border: 2px solid rgb(7, 7, 78);
+    color: rgb(7, 7, 78);
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: rgb(7, 7, 78);
+}
+
+.btnEnviar {
+    height: 60px;
+    width: 20%;
+    border: 2px solid rgb(7, 7, 78);
+    border-radius: 20px;
+    background: transparent;
+    color: rgb(7, 7, 78);
+    transition: all 0.4s;
+}
+.btnEnviar:hover {
+    background: rgb(7, 7, 110);
+    color: white;
+    border: none;
+    outline: none;
+    transition: all 0.4s;
+}
+
+#enlaceMandarMail {
+    opacity: 0;
+}
+
+
+
+
+/*------- LOGIN -------*/
+/*------- y -------*/
+/*------- REGISTER -------*/
+/*
+    Se van a usar algunas o las mismas clases que para Contacto debido a que se trata de un formulario
+*/
+.login{
+    background: linear-gradient(rgb(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),url(../images/loginBackground.jpg)no-repeat;
+    background-size: cover;
+    height: 45em;
+    width: 100%;
+    border-radius: 20px;
+}
+.login a:hover {
+    color: red;
+}
+.registro {
+    background: linear-gradient(rgb(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),url(../images/loginBackground.jpg)no-repeat;
+    background-size: cover;
+    height: 55em;
+    width: 100%;
+    border-radius: 20px;
+}
+.registro a:hover {
+    color: red;
+}
+
+
+
+
+
+
+
+/*------- FOOTER -------*/
+.linkCanaveral:hover {
+    cursor: pointer;
+}
+.RRSS a{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}

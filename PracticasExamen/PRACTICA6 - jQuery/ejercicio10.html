@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery</title>
+    <style>
+        .horizontal {
+            font-size: 16px;
+        }
+    </style>
+    <script src='jquery.js'></script>
+    <script>
+        $(".horizontal>p:gt(0)").show();
+    </script>
+</head>
+
+<body>
+    <!--Dado el siguiente código muestra el contenido del segundo párrafo
+         que este dentro de una capa de la clase horizontal.-->
+    <h1>DEMO:</h1>
+    <div class="horizontal">
+        <p>PARRAFO 1:Este parrafo está dentro de <code>div</code> con la clase "horizontal".</p>
+    </div>
+    <div class="horizontal">
+        <p>PARRAFO 2:Este parrafo está dentro de <code>div</code> con la clase "horizontal".</p>
+    </div>
+    <div class="horizontal">
+        <p>PARRAFO 3:Este parrafo está dentro de <code>div</code> con la clase "horizontal".</p>
+    </div>
+</body>
+
+</html>

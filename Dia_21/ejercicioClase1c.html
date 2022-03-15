@@ -1,0 +1,26 @@
+//supervisor.html<br>
+
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8" />
+ <title>HTML5</title>
+ <style> </style>
+ <script>
+ window.addEventListener('storage',mostrar);
+ function mostrar(evento){
+    var mensaje = '<p><strong>Nombre:</strong> '+evento.key;
+    mensaje += '<strong> Valor actual:</strong> '+evento.newValue;
+    mensaje += '<strong> Valor anterior:</strong> '+evento.newValue;
+    if(evento.storageArea == window.localStorage){
+         mensaje += '<strong> Almac&eacute;n:</strong> local</p>';
+    }else{
+         mensaje += '<strong> Almac&eacute;n:</strong> sesi&oacute;n</p>';
+    }
+   document.body.insertAdjacentHTML('beforeend',mensaje);
+ }
+ </script>
+ </head>
+ <body>
+ </body>
+</html>

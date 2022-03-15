@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            document.getElementById("caja1")
+                    .addEventListener("click",comprobarTecla);
+            document.getElementById("caja2")
+                    .addEventListener("click",comprobarTecla);
+            document.getElementById("caja3")
+                    .addEventListener("click",comprobarTecla);
+            document.getElementById("caja1")
+                    .addEventListener("click",mostrarMensaje);
+            document.getElementById("caja2")
+                    .addEventListener("click",mostrarMensaje);
+            document.getElementById("caja3")
+                    .addEventListener("click",mostrarMensaje);
+            
+        //OTRAS FORMAS DE PONER EL EVENTO, AUNQUE DEBEREMOS USAR LA PRIMERA 
+        //PORQUE ESTAS DOS TIENEN RESTRICCIONES DE USO YA QUE SI QUEREMOS PONER VARIOS EVENTOS LOS ANULA
+            /*    
+            document.getElementById("caja1")
+                    .onclick = comprobarTecla;
+            document.getElementById("caja1")
+                    .setAttribute("onclick",comprobarTecla);
+            */
+        }
+
+        
+        function comprobarTecla(){
+            alert(this.id);     //El "this" hace referencia al elemento donde ha ocurrido el evento, pero solo funciona cuando se hace el addEventListener
+            alert(event.currentTarget.id);
+        }
+
+        function mostrarMensaje(){
+            alert("HOLA");
+        }
+        
+    </script>
+
+</head>
+<body>
+    
+<input type="text" id="caja1"><br>
+<input type="text" id="caja2"><br>
+<input type="text" id="caja3"><br>
+<a href="https://www.as.com">Ir al AS</a>
+
+</body>
+</html>

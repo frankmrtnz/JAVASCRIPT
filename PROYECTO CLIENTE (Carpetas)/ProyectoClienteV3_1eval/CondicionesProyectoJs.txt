@@ -1,0 +1,13 @@
+[Bolsa de Trabajo - Ofertas de empleo]
+- La aplicación debe tener al menos la gestión de 2 tipos de objetos y la relación entre ellos. 
+	Por ejemplo, clientes y productos y la relación compra
+- Cada objeto debe tener más de 5 campos, constructor y al menos 3 métodos adicionales
+- Para cada elemento se debe poder dar de alta, modificar, eliminar y consultar. 
+	Permitiendo filtrar y ordenar por distintos campos
+- El número de páginas debe ser al menos de 8.
+- Debe haber un menu
+- Debe haber una carga inicial de los objetos para no partir de un sistema vacio. 
+	Se puede hacer utilizando un archivo js adicional o una petición AJAX.
+- Es imprescindible que el código este organizado, con comentarios, legible 
+	(nombres de variables y métodos, indexación...)
+- En cada proyecto el profesor indicará condiciones especiales

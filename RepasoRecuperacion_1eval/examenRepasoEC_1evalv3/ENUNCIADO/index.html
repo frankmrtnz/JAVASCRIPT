@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <title>SUBASTAS DE YATES EL CAÑAVERAL</title>
+  <link rel="stylesheet" href="./css/comun.css">
+  <link rel="shortcut icon" href="#">
+  <script SRC="yates.js"></script>
+  <script src="index.js"></script>
+</head>
+<body translate="no" >
+  <div id="container">
+    <nav>
+        <ul>
+            <li><a href="index.html">General</a></li>
+            <li><a href="#">Ver Subastas Abiertas<i class="down"></i></a>
+            <!-- Primer Menu Desplegable -->
+            <ul>
+                <li><a href="#">Opcion 1</a></li>
+                <li><a href="#">Opcion 2</a></li>
+                <li><a href="#">Opcion 3</a></li>
+            </ul>        
+            </li>
+	        <li><a href="">Recarga</i></a>
+                <li><a href="#">Opcion <i class="down"></i></a>
+             <!-- Primer Menu Desplegable -->
+            <ul>
+                <li><a href="#">Opcion 1</a></li>
+                <li><a href="#">Opcion 2</a></li>
+                <li><a href="#">Opcion 3</a>
+            	 <!-- Segudo Menu Desplegable -->
+                <ul>
+                    <li><a href="#">Ver</a></li>
+                    <li><a href="#">Modificar</a></li>
+                    <li><a href="#">Otros</a>
+                         <!-- Tercer Menu Desplegable -->
+                        <ul>
+                            <li><a href="#">opcion1</a></li>
+                            <li><a href="#">opcion2</a></li>
+                            <li><a href="#">opcion3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+            </li>
+            <li><a href="#">Ayuda</i></a></li>
+            <li><div id="totalPujas">0</div></li>
+        </ul>
+    </nav>
+    <div>
+    </div>
+   <div id="principal">
+    <h1>YATES DISPONIBLES PARA PUJAR</h1>
+   </div>	   	   
+  <div id="operaciones">
+    <div id="divHacerPuja" style="border: 1px solid white;">
+      <p><span>Tipo de pago:</span><br>
+        Al Contado<input type="radio" value="contado" name="tipo">
+        Tarjeta<input type="radio" value="tarjeta" name="tipo">
+        Bizum<input type="radio" value="bizum" name="tipo">
+      </p>
+      <p>Puerto de recogida<input type="text" id="txtPuerto"></p>
+      <p>Fecha aviso<input type="text" class="fecha" placeholder="dd/mm/aaaa"></p>
+      <p>Numero tarjeta<input type="text" class="tarjeta"></p>
+      <p><button type="button" id="btnHacerPujas">Hacer Pujas</button></p>
+    </div>   
+    <p><button type="button" id="btnVerMas">Ver Más</button></p>  
+    <p><button type="button" id="btnVerMasCaro">Ver Yate más caro</button></p>  
+    <p><button type="button" id="btnOrdenarPorDescripcion">Ordenar por Descripción</button></p>  
+  </div>
+</div>
+</body>

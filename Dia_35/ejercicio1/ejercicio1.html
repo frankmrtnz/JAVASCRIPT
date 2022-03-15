@@ -1,0 +1,109 @@
+// Ejercicio 1: consulta utilizando json y metodo ajax de jquery
+
+Este método nos permite realizar todo tipo de peticiones  (no sólo XMLHttpRequest, sino también de tipo script y JSONP).
+
+
+
+//index.html
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML5</title>
+    <!--<link rel="stylesheet" href="css/main.css" type="text/css">-->
+    <style>
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+    </style>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script>
+        var localidad;
+        var jqXHR = null;
+        var servicio = 'http://query.yahooapis.com/v1/public/yql?q=';
+        $(document).ready(function () {
+            $('table').hide();
+            $('#localidad').on('change', actualizarTabla)
+        });
+        function actualizarTabla(evento) {
+            if (evento.target.value != '') {
+                if (jqXHR != null) {
+                    jqXHR.abort();
+                }
+                var url = servicio + encodeURIComponent("select * from xml where " +
+
+      url = 'http://www.aemet.es/xml/municipios/localidad_"  + evento.target.value + ".xml'")
+
+      jqXHR = $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: "JSON",
+                    success: gestionarExito
+                });
+            }
+        }
+        function gestionarExito(datos) {
+            var dia = datos.query.results.root.prediccion.dia;
+            var i, j;
+            var imagen;
+            for (i = 0; i < 4; i++) {
+                $('#dia_' + i).text(dia[i].fecha);
+                for (j = 1; j < 3; j++) {
+                    contenido = '<p>' + dia[i].estado_cielo[j].descripcion + '</p>';
+                    $('#dia_' + i + '_' + dia[i].estado_cielo[j].periodo).html(contenido);
+                }
+            }
+            $('table').show();
+        }
+    </script>
+</head>
+
+<body>
+    <select id='localidad'>
+        <option value="">--Elija una localidad--</option>
+        <option value='28079'>Madrid</option>
+        <option value='10116'>Malpartida de Plasencia</option>
+        <option value='39063'>Rionansa</option>
+    </select>
+    <table>
+        <tr>
+            <th rowspan="2">Fecha</th>
+            <th id='dia_0' colspan='2'>0</th>
+            <th id='dia_1' colspan='2'>1</th>
+            <th id='dia_2' colspan='2'>2</th>
+            <th id='dia_3' colspan='2'>3</th>
+        </tr>
+        <tr>
+            <th>0-12</th>
+            <th>12-24</th>
+            <th>0-12</th>
+            <th>12-24</th>
+            <th>0-12</th>
+            <th>12-24</th>
+            <th>0-12</th>
+            <th>12-24</th>
+        </tr>
+        <tr>
+            <th>Estado del cielo</th>
+            <td id="dia_0_00-12"></td>
+            <td id="dia_0_12-24"></td>
+            <td id="dia_1_00-12"></td>
+            <td id="dia_1_12-24"></td>
+            <td id="dia_2_00-12"></td>
+            <td id="dia_2_12-24"></td>
+            <td id="dia_3_00-12"></td>
+            <td id="dia_3_12-24"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

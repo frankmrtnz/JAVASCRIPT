@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Ejercicio 3</title>
+<!--
+    EJERCICIO 3: Completar el código JavaScript proporcionado para que se añadan nuevos elementos a 
+    la lista cada vez que se pulsa sobre el botón. Utilizar las funciones DOM para crear nuevos 
+    nodos y añadirlos a la lista existente.
+-->
+
+<script type="text/javascript">
+function anade() {
+    var texto = prompt("Añade un elemento a la lista");
+    var lista = document.getElementById("lista");
+    var elementoLista = document.createElement('li');
+    lista.appendChild(elementoLista);
+    elementoLista.innerHTML = texto;
+}
+</script>
+</head>
+<body>
+<ul id="lista">
+	<li>Lorem ipsum dolor sit amet</li>
+	<li>Consectetuer adipiscing elit</li>
+	<li>Sed mattis enim vitae orci</li>
+	<li>Phasellus libero</li>
+	<li>Maecenas nisl arcu</li>
+</ul>
+<input type="button" value="Anadir elemento" onclick="anade();">
+</body>
+</html>

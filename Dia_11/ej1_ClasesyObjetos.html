@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día 11</title>
+</head>
+<body>
+    
+<h1>Clases y Objetos</h1>
+<script>
+
+    //PRIMER FORMATO - JSON (Se usará, más para el intercambio con el servidor)
+    var usuario1 = {
+        "id" : "root",
+        "clave" : "1234"
+    }
+    alert(usuario1.id);
+    
+    usuario1.cambiarClave = function(nuevaClave){
+        this.clave = nuevaClave;
+    }
+
+
+
+    //SEGUNDO FORMATO - OBJETOS Class(Se usará)
+    class Usuario {
+        constructor(id,clave){
+            this.id = id;
+            this.clave = clave;
+            var edad = 20;   //Propiedad privada pero solo dentro de la clase
+        };
+        mostrar(){
+            console.log(this.id);     //Imprime por consola el id del objeto
+        };
+        cambiarClave(nuevaClave){
+            this.clave = nuevaClave;
+        }
+    }
+    var usuario2 = new Usuario("juan","4321");
+    var usuario3 = new Usuario("j","1111");
+    alert(usuario2.id);
+    alert(usuario3["id"]); //Es lo mismo que el anterior, se usará para cosas puntuales.
+    usuario2.cambiarClave("2222");
+    delete usuario2.id;   //Para borrar la propiedad de un objeto(usuario1,usuario2...), en este caso el ID
+    delete usuario2.prototype.id;  //Para borrar la propiedad de una clase de todos los objetos, en este caso el ID
+    console.log(usuario2);
+    console.log(usuario3);
+
+    
+
+
+
+    var texto = JSON.stringify(usuario1);   //Convierte el Objeto a String(texto)
+    var usuario3 = JSON.parse(texto);       //Convierte el texto en Objeto
+
+
+
+
+
+
+
+/*
+//OTROS MODELOS (No se van a usar, pero debemos conocer)
+
+
+    //TERCER FORMATO (El modelo que utiliza Js internamente) - No se va a utilizar en clase
+    function Usuariox(id,clave){
+        this.id = id;
+        this.clave = clave;
+    }
+    var usuario3 = new Usuariox("jose","5678");
+    alert(usuario3.id);
+
+
+
+    //CUARTO FORMATO
+    var usuario4 = new Object();
+    usuario4.id = "jaime";
+    usuario4.clave = "8888"; 
+    alert(usuario4.id);
+
+
+
+    //QUINTO FORMATO (Para copiar otro objeto) 
+    var usuario5 = Object.create(usuario1);   //Hace como una copia del objeto "usuario1" y almacena en "usuario5"
+
+*/
+
+
+</script>
+
+
+</body>
+</html>

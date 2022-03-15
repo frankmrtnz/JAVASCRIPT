@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>HTML5</title>
+
+    <!--<link rel="stylesheet" href="css/main.css" />-->
+
+    <style>
+
+    </style>
+
+    <!--<script src='jquery-1.7.2.min.js'></script>-->
+
+    <script src="inicializar.js" type='text/javascript'></script>
+
+</head>
+
+<body>
+
+    <h1>IndexedDB</h1>
+
+    <fieldset>
+
+        <legend>Base de datos Notas</legend>
+
+        <h2>
+
+            Versi&oacute;n de la base de datos:
+
+            <span id='versionBaseDeDatos'></span>
+
+        </h2>
+
+        <button id='botonAbrirBaseDeDatos' onclick='abrirBaseDeDatos();'>Abrir base de datos</button>
+
+        <button id='botonBorrarBaseDeDatos' onclick='borrarBaseDeDatos();'>Borrar base de datos</button>
+
+    </fieldset>
+
+    <fieldset id='nota' disabled='disabled'>
+
+        <legend>Nota</legend>
+
+        <label for='idNota'>Id nota:</label>
+
+        <input id='idNota' type='number' readonly='readonly' autocomplete='off' /><br />
+
+        <label for='titulo'>T&iacute;tulo:</label>
+
+        <input id='tituloNota' type='text' autocomplete='off' /><br />
+
+        <label for='contenido'>Contenido:</label> <br />
+
+        <textarea id='contenidoNota' autocomplete='off'></textarea><br />
+
+        <button onclick='guardarNota();'>Guardar esta nota</button>
+
+        <button onclick='borrarNota();'>Borrar esta nota</button>
+
+        <button onclick='borrarCampos();'>Borrar campos</button> <br />
+
+    </fieldset>
+
+    <fieldset id='cargarNota' disabled='disabled'>
+
+        <legend>Cargar nota</legend>
+
+        <label for='idCargarNota'>Id nota:</label>
+
+        <input id='idCargarNota' type='number' autocomplete='off' />
+
+        <button onclick='cargarPorId();'>Cargar por id</button><br />
+
+        <label for='tituloCargarNota'>T&iacute;tulo nota:</label>
+
+        <input id='tituloCargarNota' type='text' autocomplete='off' />
+
+        <button onclick='cargarPorTitulo();'>Cargar por t&iacute;tulo</button>
+
+    </fieldset>
+
+    <fieldset id='rangoDeNotas' disabled='disabled'>
+
+        <legend>Ver rango de notas</legend>
+
+        <label for='desdeId'>Desde id:</label>
+
+        <input id='desdeId' type='number' autocomplete="off" />
+
+        <label for='hastaId'>Hasta id:</label>
+
+        <input id='hastaId' type='number' autocomplete="off" />
+
+        <button onclick='verRango();'>Actualizar</button>
+
+        <ul id='listaRango'></ul>
+
+    </fieldset>
+
+</body>
+
+</html>

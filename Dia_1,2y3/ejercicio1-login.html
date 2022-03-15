@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1-Login</title>
+    <script>
+
+        function validarAcceso(){
+          var usuario = document.getElementById("txtUsuario").value;
+          var clave = document.getElementsByTagName("input")[1].value;
+            if(usuario=="Juan" && clave=="1234") {
+              location.href="aterrizaje.html";
+            } else {
+                alert("Usuario y/o clave erronea");
+            }
+        }
+
+        /*var mostrarSaludo = function(){
+        }                Otra manera de poner la function    */
+        /*function mostrarSaludo(mensaje){
+            //alert("HOLA");
+            alert(mensaje);
+            //console.log(mensaje);   //Muestra el mensaje por consola(Inspeccionar)
+        }*/
+        
+    </script>
+</head>
+<body>
+    <h1>ACCESO AL SISTEMA</h1>
+    <p>Usuario: <input type="text" id="txtUsuario" placeholder="Introduce usuario" style="background-color: aqua;"></p>
+    <p>Clave: <input type="text" placeholder="Introduce clave" style="background-color: aqua;"></p>
+    <p>
+        <button type="submit" onclick="validarAcceso('HOLA')"  style="background-color: aqua;">ACCEDER</button>
+        <button type="submit" style="background-color: aqua;">CANCELAR</button>
+    </p>
+</body>
+</html>

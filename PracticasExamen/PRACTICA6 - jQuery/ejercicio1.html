@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery</title>
+    <style>
+    </style>
+    <script src='jquery.js'></script>
+    <script>
+        $(document).ready(function () {
+            $('tr:odd:gt(1)').css('background-color', 'green');
+            $('td:even,th:even').css({'background-color':'blue'});
+        });
+    </script>
+</head>
+
+<body>
+    <!--Modifica el siguiente código para que pinte las columnas pares con color de fondo azul-->
+
+    <table>
+        <script>
+            var i;
+            for (i = 1; i <= 10; i++) {
+                document.write('<tr><td>7 x ' + i + ' = ' + '</td><td>' + (7 * i) + '</td></tr>');
+            }
+        </script>
+    </table>
+</body>
+
+</html>

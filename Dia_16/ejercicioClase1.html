@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/foto1.jpeg">
+    <img src="./images/foto2.jpeg">
+    <img src="./images/foto3.jpeg">
+    <script>
+        document.images[0].width="100";
+        document.images[0].height="100";
+        
+        var lista = [...document.images];    //[...document.images] Indica que es array y da la coleccion (IMPORTANTE)
+        lista.forEach((imagen)=> imagen.width="100");   //Le aplicamos el cambio a todas las images[]
+        lista.forEach((imagen)=> imagen.height="100");
+    </script>
+</body>
+</html>

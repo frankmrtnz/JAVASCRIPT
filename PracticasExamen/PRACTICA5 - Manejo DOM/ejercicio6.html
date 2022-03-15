@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<!--
+EJERCICIO 6: Modifica el ejercicio 5 para que la ventana se abra cada 
+    15 segundos y se cierre 5 segundos después.
+-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Ejercicio 4</title>
+    <script type="text/javascript">
+        var nuevaVentana;
+        function abrirVentana() {
+            var top = (screen.height - 300) / 2;
+            var izquierda = (screen.width - 300) / 2;
+            nuevaVentana = window.open('', '', "width=300,height=300,top=" + top + ",left=" + izquierda);
+            var enlace = nuevaVentana.document.createElement("a");
+            enlace.href = "javascript:window.close()";
+            var texto = nuevaVentana.document.createTextNode("Cerrar");
+            enlace.appendChild(texto);
+            nuevaVentana.document.body.appendChild(enlace);
+            var imagen = nuevaVentana.document.createElement("img");
+            imagen.src = "foto1.jpg";
+            nuevaVentana.document.body.appendChild(imagen);
+            setTimeout(function () { nuevaVentana.close(); }, 5000)
+        }
+        window.onload = function () {
+            setInterval(abrirVentana, 15000);
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

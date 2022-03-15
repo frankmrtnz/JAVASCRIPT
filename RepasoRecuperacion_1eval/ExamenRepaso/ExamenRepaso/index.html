@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>EXAMEN SEGUNDA</title>
+<style>
+table.sinborde,table.sinborde td{
+border:none;
+font-weight: bold;
+}
+table,td,th{
+border: solid 2px black;
+}
+tr.par {
+background-color:green;
+}
+#central{
+width:850px;
+}
+#datos{
+float:left;
+width:850px;
+}
+#calificaciones{
+background-color:red;
+width:200px;
+heigth:150px;
+text-align:center
+}
+</style>
+<script src="./index.js"></script>
+<script src="./datos.js"></script>
+</head>
+<body>
+<div id="ejercicio1">
+<h2>2DAW.COM: GESTION DE ALUMNOS</h2>
+<div id="calificaciones">
+TOTAL APROBADOS: 0 <br> 
+TOTAL SUSPENSOS: 0
+</div>
+<a href="">Ver Alumnos Aprobados</a><br>
+<a href="">Ver Alumnos Suspensos</a><br>
+<a href="">Inicializar</a><br>
+
+<BR>CURSO A CARGAR:<select id="curso"><option value=0>Escoge un curso</option></select>
+<button id="cmdCargar" type="button">Cargar Alumnos</button>
+<BR>MODALIDAD: <select><option value=0>Escoge una opción</option>
+<option>Presencial</option>
+<option>Dual</option>
+<option>A distancia</option>
+</select>
+
+<BR>
+<br>
+<div id="central">
+<div id="datos">
+<table id="alumnos" class="">
+<tr><th>FOTO</th><th>NOMBRE</th><th>APELLIDOS</th><th>NOTA</th><th>ACCION</th></tr>
+<tr><th colspan="5">NO HAY ALUMNOS SELECCIONADOS</th></tr>
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>

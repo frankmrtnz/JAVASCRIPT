@@ -1,0 +1,257 @@
+// EJERCICIO 1: comparativa de código en varios navegadores HTML5 y JavaScript
+
+<h1>Formulario HTML5</h1>
+
+<fieldset>
+
+    <legend>Nuevos controles</legend>
+
+    <label for="controlConDataList">Datalist:
+
+          <input id="controlConDataList" type="text" list="listaDeDatos">
+
+          <datalist id="listaDeDatos">
+
+            <option value="HTML5">HTML5</option>
+
+            <option value="JavaScript">JavaScript</option>
+
+            <option value="CSS">CSS</option>
+
+          </datalist>          
+
+        </label>
+
+    <br>
+
+    <label for="controlMeter">Temperatura:
+
+          <meter id="controlMeter" min="16" max="30" low="19" high="27" value="22">          
+
+        </meter></label>
+
+    <button type="button" onclick="document.getElementById('controlMeter').value--;">
+
+          Bajar</button>
+
+    <button type="button" onclick="document.getElementById('controlMeter').value++;">
+
+          Subir</button>
+
+    <br>
+
+    <label for="controlProgress">Progreso:
+
+          <progress id="controlProgress" max="100" value="50">  
+
+        </progress></label>
+
+    <button type="button" onclick="document.getElementById('controlProgress').value+=5;">
+
+          Avanzar</button>
+
+</fieldset>
+
+<fieldset>
+
+    <legend>Nuevas variantes del control input</legend>
+
+    <label for="controlColor">Color:
+
+            <input id="controlColor" type="color" value="#ff00ff">  
+
+          </label>
+
+    <br>
+
+    <label for="controlDate">Date:
+
+            <input id="controlDate" type="date">  
+
+          </label>
+
+    <br>
+
+    <label for="controlDateTime">DateTime:
+
+            <input id="controlDateTime" type="datetime">  
+
+          </label>
+
+    <br>
+
+    <label for="controlDateTimeLocal">DateTimeLocal:
+
+            <input id="controlDateTimeLocal" type="datetime-local">  
+
+          </label>
+
+    <br>
+
+    <label for="controEmail">Email:
+
+            <input id="controEmail" type="email" autofocus="" required="">  
+
+          </label>
+
+    <br>
+
+    <label for="controMonth">Month:
+
+            <input id="controMonth" type="month">  
+
+          </label>
+
+    <br>
+
+    <label for="controNumber">Number:
+
+            <input id="controNumber" type="number" min="0" max="100" step="0.01">  
+
+          </label>
+
+    <br>
+
+    <label for="controRange">Range:
+
+            <input id="controRange" type="range" min="0" max="100" step="0.01">  
+
+          </label>
+
+    <br>
+
+    <label for="controSearch">Search:
+
+            <input id="controSearch" type="search">  
+
+          </label>
+
+    <br>
+
+    <label for="controTel">Tel:
+
+            <input id="controSearch" type="tel" pattern="\d\d\d\d\d\d\d\d\d" placeholder="912345678">  
+
+          </label>
+
+    <br>
+
+    <label for="controTime">Range:
+
+            <input id="controTime" type="time">  
+
+          </label>
+
+    <br>
+
+    <label for="controURL">URL:
+
+            <input id="controURL" type="url">  
+
+          </label>
+
+    <br>
+
+    <label for="controWeek">Week:
+
+            <input id="controWeek" type="week">  
+
+          </label>
+
+    <br>
+
+</fieldset>
+
+<input type="submit" value="Enviar"> // EJERCICIO 2: ejemplo del objeto window Ejemplo Navigator
+
+<script type="text/javascript">
+
+    var ventana;
+
+
+
+    function verSize() {
+
+        alert("Altura " + ventana.innerHeight + " y anchura " + ventana.innerWidth);
+
+    }
+
+    function abrir() {
+
+        ventana = window.open('', '', 'width=200, height=100');
+
+        var h1 = ventana.document.createElement("h1");
+
+        h1.appendChild(ventana.document.createTextNode("HOLA"));
+
+        ventana.document.body.appendChild(h1);
+
+    }
+
+    function cerrar() {
+
+        ventana.close();
+
+    }
+
+    function mover() {
+
+        ventana.moveTo(500, 100);
+
+        ventana.focus()
+
+    }
+
+    function agrandar() {
+
+        ventana.resizeTo(250, 250)
+
+        ventana.focus();
+
+    }
+
+</script>
+
+<button type="button" onclick="verSize()">VER TAMAÑO</button>
+
+<button type="button" onclick="abrir()">ABRIR</button>
+
+<button type="button" onclick="cerrar()">CERRAR</button>
+
+<button type="button" onclick="mover()">MOVER</button>
+
+<button type="button" onclick="agrandar()">AGRANDAR</button> // EJERCICIO 3: ejemplo del objeto history Ejemplo Navigator
+
+<script type="text/javascript">
+
+    function mostrarAnterior() {
+
+        if (history.length > 10) history.back();
+
+    }
+
+</script>
+
+<button type="button" onclick="mostrarAnterior()">VOLVER</button> // EJERCICIO 4: ejemplo de uso del objeto navigator Ejemplo Navigator
+
+<script type="text/javascript">
+
+    alert("probando, probando");
+
+    alert("Navegador: " + navigator.appName + "<br>");
+
+    alert("Version: " + navigator.appVersion + "<br>");
+
+    if (navigator.javaEnabled()) {
+
+        alert("El navegador si esta preparado para soportar Applets de Java");
+
+    } else {
+
+        alert("El navegador No esta preparado para soportar Applets de Java");
+
+    }
+
+</script>
+
+<h1>Ejemplo de uso del objeto Navigator</h1>

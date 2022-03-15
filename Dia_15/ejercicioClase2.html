@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var ventana1;
+        var ventana2;
+        var ventana3;
+        var ventana4;
+
+        function mostrarInformacion() {
+            //Abre 3 ventanas
+            //window.open("URL","frames","CaracteristicasDeLaPagina")
+            ventana1 = window.open("http://www.as.com","","width=100,height=100,toolbar=yes");   
+            ventana2 = window.open("http://www.elpais.com","","width=100,height=100,toolbar=yes");
+            ventana3 = window.open("http://www.amazon.es","","width=100,height=100,toolbar=yes");
+        }
+
+        function abrirVentana4() {
+            ventana4 = window.open("","","width=100,height=100,toolbar=yes"); 
+            ventana4.document.body.innerHTML = "HOLA";
+        }
+
+        function mostrarInfoNavegador() {
+            console.log(navigator.appCodeName);
+            console.log(navigator.appName);
+            console.log(navigator.appVersion);
+            console.log(navigator.platform);
+            console.log(navigator.javaEnabled);
+            console.log(navigator.plugins);
+            console.log(navigator.language);
+        }
+
+        function mostrarInfoLocation() {
+            console.log(location.hostname);
+            console.log(location.host);
+            console.log(location.protocol);
+            console.log(location.port);
+            console.log(location.pathname);
+            console.log(location.hash);
+            console.log(location.reload());
+            
+        }
+
+    </script>
+</head>
+<body>
+    <button type="button" id="boton1" onclick="mostrarInformacion()">Boton 1</button><br>
+    <button type="button" id="boton2" onclick="ventana2.close()">Boton 2</button><br>
+    <button type="button" id="boton3" onclick="ventana3.resizeTo(300,300)">Boton 3</button><br>
+    <button type="button" id="boton4" onclick="abrirVentana4()">Boton 4</button><br>
+    <button type="button" id="boton5" onclick="console.log(history)">Boton 5</button><br>   <!--Historico-->
+    <button type="button" id="boton6" onclick="mostrarInfoNavegador()">Boton 6</button><br>
+    <button type="button" id="boton7" onclick="mostrarInfoLocation()">Boton 7</button><br>
+</body>
+</html>

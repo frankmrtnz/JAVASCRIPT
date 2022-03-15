@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        /* 
+        //Hecho con Javascript
+        onload = function(){
+            cargarTamanoImagenes();
+        }
+
+        function cargarTamanoImagenes(){
+            var listaImagenes = [...document.images];
+            listaImagenes.forEach(element => {
+                alert(element.src);
+                element.style.width='100px';
+                element.style.border="1px solid black";
+            });
+        }
+        */
+
+        //Hecho con JQUERY
+        $(document).ready(function(){
+            //Todas las imagenes
+            $("img").css({"width":"100px",
+                          "border":"1px solid black"})
+                    .slideUp(3000);
+            /*
+            //Sólo primera posicion con el eq(0)
+            $("img:eq(0)").css({"width":"100px",
+                "border":"1px solid black"})
+                .slideUp(3000);
+            //Todos que sean mayores de la primera posición
+            $("img:even").css({"width":"100px",
+                "border":"1px solid black"})
+                .slideUp(3000);
+            */
+            /*
+            //Que contenga el texto 'padre'
+            $("p:contains('padre')").css({"color":"red"});
+            //Que esté vacío
+            $("p:empty").css({"border":"1px solid black"});
+            //Que tenga algo dentro
+            $("p:parent").css({"border":"1px solid black"});
+            */
+           
+           var misparrafos = $("p").css({"border":"1px solid black"})
+            misparrafos.slideUp(3000);
+            
+        });
+
+
+    </script>
+</head>
+<body>
+    <img src="./images/foto1.jpeg" alt="foto1">
+    <img src="./images/foto2.jpeg" alt="foto2">
+    <img src="./images/foto3.jpeg" alt="foto3">
+    <img src="./images/foto4.jpeg" alt="foto4">
+    <img src="./images/foto5.png" alt="foto5">
+    <p style='display: none;'>Hola parrafo 1</p>
+    <p></p>
+    <p>Hola parrafo 3 <span>soy padre</span></p>
+</body>
+</html>

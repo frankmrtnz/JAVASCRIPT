@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+
+/*
+        $(document).ready(function(){
+            $("button:eq(0)")
+                .click({"saludo":"Hola"},hacerAlgo)
+           });
+*/
+
+        function hacerAlgo(event){  //event
+            /*
+            //$("input:text:eq(0)").val("HOLA");  //Modifica el valor
+            $("input:text:eq(0)").attr("value","HOLA");   //Modifica el valor (2ªforma)
+
+            //$("p").text("<span>ADIOS</span>");   //Modifica el contenido del texto (no acepta etiquetas)
+            $("p").html($("p").html() + "<span>ADIOS</span>");   //Modifica el texto (acepta etiquetas) (2ªforma)
+            */
+            //-------------------------------------------
+            /*
+            $("<img src='./images/foto1.jpeg' />")
+                .appendTo("p:eq(0)")       //Hijo menor(por debajo)
+                .css({"border":"1px solid red"});
+            */
+           /*
+            $("p:eq(0)")
+                .append("<img src='./images/foto1.jpeg' />")    //Hermano
+                .css({"border":"1px solid red"});
+            */
+           /*
+            $("p:eq(0)")
+                .prepend("<img src='./images/foto1.jpeg' />")   //Hijo mayor
+                .css({"border":"1px solid red"});
+            }
+            */
+            //-------------------------------------------
+            /*
+            $("input")
+                .wrapAll("<div style='border:1px solid red'</div>");    //Crea un solo div para todos los input
+            */
+           /*
+            $("input")
+                .wrap("<div style='border:1px solid red'</div>");   //Crea un padre(div) a cada input
+            */
+           /*
+            $("p")
+                .wrapInner("<div style='border:1px solid red'</div>");  //Crea un padre al contenido(p)
+            */
+           /*
+            $("body")
+                .wrapInner("<div style='border:1px solid red'</div>");  //Crea un padre al contenido(body)
+            */
+           //-------------------------------------------
+           /*
+            $("body")
+                    .empty("p");    //Elimina contenido del parrafo pero sigue estando
+            */
+           /*   
+            $("body")
+                    .remove("p");   //Elimina el parrafo
+            */
+           /*
+            $("body")
+                    .clone().prependTo(document.body);  //Hcae copia exacta del body y lo añade al final
+            */
+           //-------------------------------------------
+           /*
+           alert(event.data.saludo);
+           */
+          //-------------------------------------------
+          $("img").animate(
+              {height:"500px", width:"20px"}, 10000
+          );
+        }
+
+
+        function hacerAlgo2(){
+            /*
+            //alert($("input:text:eq(0)").val()); //Recupera el valor
+            alert($("input:text:eq(0)").attr("value"));   //Recupera el valor (2ªforma)
+            */
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <img src="./images/foto2.jpeg" >
+    <p>SALUDO</p>
+    Nombre: <input type="text">
+    Clave: <input type="text">
+    <!--
+        <button type="button" onclick="hacerAlgo()">Púlsame</button>
+    <button type="button" onclick="hacerAlgo2()">Púlsame2</button>
+    -->
+    <!--
+        <button type="button" >Púlsame</button>
+    <button type="button" >Púlsame2</button>
+    -->
+    <button type="button" onclick="hacerAlgo()">Púlsame</button>
+</body>
+</html>

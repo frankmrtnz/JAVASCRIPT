@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+//HACER PÁGINA CON 5 BOTONES Y QUE AL PULSAR CADA BOTON DIGA "HAS PULSADO EL BOTON (NUM)"
+    window.onload = function() {
+        for (i=1;i<=5;i++){
+            var button = document.createElement('button'); 
+            button.type = 'button'; 
+            button.innerText = 'Botón '+i;
+            button.id = i; 
+            document.body.appendChild(button);
+            document.body.appendChild(document.createElement("br")); 
+            document.body.appendChild(document.createElement("br")); 
+            document.getElementById(i).addEventListener("click",mostrarMensaje);
+            document.getElementById(i).datoNecesario=i;
+        }
+    }
+
+
+    function mostrarMensaje(){
+        alert("Has pulsado el botón nº "+this.datoNecesario);
+    }
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

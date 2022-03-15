@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <title>Gestiona IES</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./css/login.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="./js/claseUsuario.js"></script>
+  <script src="./js/login.js"></script>
+</head>
+<body translate="no" >
+  <div class="wrapper">
+  <form class="login">
+    <p class="title">Acceso</p>
+    <input type="text" placeholder="usuario" id="usuario" autofocus/>
+    <i class="fa fa-user"></i>
+    <input type="password" placeholder="clave" id="clave" />
+    <i class="fa fa-key"></i>
+    <a href="#">¿Olvidaste la clave?</a>
+    <button id="acceder" type="button" onclick="comprobarUsuario()">
+      <i class="spinner"></i>
+      <span class="state">Acceder</span>
+    </button>
+  </form>
+  <footer><a target="blank" href="https://www.educa2.madrid.org/web/iescanaveral">IES EL CAÑAVERAL</a></footer>
+  </div>
+</body>
+</html>

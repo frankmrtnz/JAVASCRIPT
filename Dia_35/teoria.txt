@@ -1,0 +1,10 @@
+Jquery suministra unos métodos para poder trabajar con peticiones ajax, los más habituales son:
+
+$.ajax(datos_en_formato_json)  es el método genérico, sirve para cualquier tipo de consulta (https://api.jquery.com/jquery.ajax/)
+$().load(url_solicitada,parámetros,funcion_procesa_datos)
+$.get(url_solicitada,parámetros,funcion_procesa_datos,tipo_datos_recibidos)
+$.getJSON(url_solicitada,parámetros,funcion_procesa_datos)
+$.post(url_solicitada,parámetros.funcion_procesa_datos,tipo_datos_recibidos)
+$.getScript(url_solicitada,funcion_procesa_datos)
+NOTA: Es recomendable escribir $.ajaxSetup({ cache: false }); al inicio para que no cachee la petición a datos.
+

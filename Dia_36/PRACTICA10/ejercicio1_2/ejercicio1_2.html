@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+//----------------------------------------------------
+//EJERCICIO1
+/*
+Crea una página html con un formulario con 1 select (INGREDIENTES), 2 cajas de 
+    texto (COCINERO y ESTADO) y 2 botones (CONSULTAR y ENVIAR). Al pulsar el botón 
+    CONSULTAR debe llamar a la página php anterior y cargar el valor devuelto en la caja ESTADO.
+*/
+
+window.onload=function(){
+    document.getElementsByTagName("button")[0]
+            .addEventListener("click",llamarAEjercicio1);
+}
+function llamarAEjercicio1(){
+   var xhr = new XMLHttpRequest();
+   xhr.addEventListener('readystatechange',gestionarRespuesta);
+   xhr.open('GET','ejercicio1.php',true);
+   xhr.send(null);
+}
+
+function gestionarRespuesta(evento){
+   if(evento.target.readyState == 4 && evento.target.status == 200){
+         document.getElementById('estado').value = evento.target.responseText;
+   }
+}
+
+
+
+//----------------------------------------------------
+//EJERCICIO2
+/*
+Modifica el ejercicio anterior para que rellene el select con los valores 
+    que hay en el  de servidor “ingredientes.txt”
+NOTA: En el select debe mostrarse el texto y el número debe ser el value
+*/
+
+
+window.onload=function(){
+    document.getElementsByTagName("button")[0]
+            .addEventListener("click",llamarAEjercicio1);
+    cargarSelect();
+}
+
+function cargarSelect(){
+  fetch('ingredientes.txt', {method: 'GET', }).then(res => res.text())
+    .catch(error => console.error('Error:', error))
+    .then( res => rellenarSelect(res));
+}
+
+function rellenarSelect(datos){
+   console.log(datos);
+   var select = document.getElementsByTagName("select")[0];
+   var listaIngredientes = datos.split(";");
+   listaIngredientes.forEach( ingrediente => {
+      if (ingrediente.trim() != ""){
+      var codigo = ingrediente.split("-")[0];
+         	 var nombre = ingrediente.split("-")[1];         	 
+		 var option = document.createElement("option");
+		 option.value = codigo;
+		 option.appendChild(document.createTextNode(nombre));
+		 select.appendChild(option);  
+      }     
+   });
+}
+
+</script>
+</head>
+<body>
+<h1>PRUEBA AJAX</h1>
+<select></select>
+<button type="button">CONSULTAR</button>
+<button type="button">ENVIAR</button></br>
+COCINERO:<input type="text" id="cocinero"> 
+ESTADO:<input type="text" id="estado">
+
+</body>
+</html>

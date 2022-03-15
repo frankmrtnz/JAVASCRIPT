@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery</title>
+    <style>
+        div {
+            float: left;
+        }
+
+        div.red {
+            background: red;
+        }
+
+        div.yellow {
+            background: yellow;
+        }
+
+        div.oculta {
+            display: none;
+        }
+    </style>
+    <script src='jquery.js'></script>
+</head>
+
+<body>
+
+    <!--Modifica el siguiente  código añadiendo un botón para que oculte todas las
+capas visibles y otro botón para que oculte todas las capas con color de fondo rojo:-->
+
+    <div class='visible red'>Visible</div>
+    <div class='visible yellow'>Visible</div>
+    <div class='oculta yellow'>Oculta</div>
+    <div class='visible red'>Visible</div>
+    <div style='clear: both'></div>
+    <button onclick='$("div:hidden").show();'>Mostrar ocultos</button>
+    <button onclick='$("div:visible").hide();'>Ocultar visibles</button>
+    <button onclick='$("div.red").hide();'>Ocultar div rojo</button>
+</body>
+
+</html>

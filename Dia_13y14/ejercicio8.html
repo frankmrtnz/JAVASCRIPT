@@ -1,0 +1,62 @@
+// EJERCICIO 8: Paso de parámetros
+
+// CASO 1: parámetros constantes
+
+
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+<style>
+    td {
+        border: 2px solid black;
+        width: 100px;
+    }
+</style>
+
+<script>
+
+window.onload=function () {
+  listaBotones=document.getElementsByTagName("button");
+  listaBotones[0].addEventListener("click",function(){ operar(0,"SUMAR","SUMA=");});
+  listaBotones[1].addEventListener("click",function(){ operar(1,"SUMAR","SUMA=");});
+  listaBotones[2].addEventListener("click",function(){ operar(2,"SUMAR","SUMA=");});
+  listaBotones[3].addEventListener("click",function(){ operar(3,"SUMAR","SUMA=");});
+}
+
+
+
+function operar(fila,operacion,texto){
+
+  listaCeldas=document.getElementsByTagName("td");
+
+  if (operacion=="SUMAR"){
+    resultado=parseInt(listaCeldas[fila*4].innerHTML) + parseInt(listaCeldas[fila*4+1].innerHTML)
+  } else {
+    resultado=parseInt(listaCeldas[fila*4+1].innerHTML) - parseInt(listaCeldas[fila*4].innerHTML)
+  }
+
+  listaCeldas[fila*4+3].innerHTML=texto + " " + resultado;
+}
+
+</script> 
+
+</head> 
+
+<body> 
+
+<table>
+
+<tr><td>1</td><td>10</td><td><button>+</button></td><td></td></tr>
+
+<tr><td>2</td><td>10</td><td><button>+</button></td><td></td></tr>
+
+<tr><td>3</td><td>10</td><td><button>+</button></td><td></td></tr>
+
+<tr><td>4</td><td>10</td><td><button>+</button></td><td></td></tr>
+
+</table>
+
+</body> 
+

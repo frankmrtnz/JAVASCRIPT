@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(hacerPeticion);
+        function hacerPeticion() {
+            $.get("prueba.php",
+                { "nombre": "juan" },
+                function (data) {
+                    // let listaValores = data.split(";"); 
+                    // let resultado = "";
+                    // listaValores.forEach(element => {
+                    //     let trozos = element.split(":");
+                    //     if(trozos.length>1 && trozos[0]=="respuesta") {
+                    //         resultado = trozos[1];
+                    //     }
+                    // });
+                    $("input#caja").val(data);
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="caja">
+</body>
+
+</html>

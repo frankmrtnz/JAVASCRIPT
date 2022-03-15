@@ -1,0 +1,38 @@
+//indexSesion.html<br>
+
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8" />
+ <title>HTML5</title>
+ <script>
+ function almacenar(){
+     var nombre=document.getElementById('nombre').value;
+     var valor=document.getElementById('valor').value;
+     window.sessionStorage.setItem(nombre,valor); insertar(nombre,valor);
+ }
+ function insertar(nombre,valor){
+     var mensaje = '<p><strong>Nombre:</strong> '+ nombre;
+     mensaje += '<strong> Valor actual:</strong> '+ valor +'</p>';
+    document.body.insertAdjacentHTML('beforeend',mensaje);
+ }
+ document.addEventListener('readystatechange',cargarDatos);
+
+ function cargarDatos(evento){
+    if(document.readyState == 'complete'){
+        var i;
+        for(i=0;i<window.sessionStorage.length;i++){
+          insertar(window.sessionStorage.key(i),window.sessionStorage[window.sessionStorage.key(i)]);
+        }
+    }
+ }
+ </script>
+ </head>
+ <body>
+ <label for='nombre'>Nombre: </label> <input type='text' id='nombre' /> <br />
+ <label for='valor'>Valor: </label> <input type='text' id='valor' /> <br />
+ <button onclick='almacenar();'>Almacenar</button> <br />
+ <button onclick='window.sessionStorage.clear();insertar("BORRADO","TOTAL");'>Borrar almac&eacute;n</button> <br />
+ <iframe width="100%" src="supervisor.html"></iframe>
+ </body>
+</html>

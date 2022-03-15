@@ -1,0 +1,128 @@
+{
+    "tiempoCompleto": [
+      {
+        "id": 1,
+        "fotoEmpresa": "./images/fotosEmpresas/prismalia.png",
+        "titulo": "Diseñador Web",
+        "horas": "40",
+        "descripcion": "Buscamos diseñador web para trabajar a tiempo completo (40 horas) en la empresa Prismalia, de lunes a viernes de 8:00h a 16:30h, incluyendo media hora de descanso.",
+        "salario": 1500,
+        "duracion": "indefinido"
+      },
+      {
+        "id": 2,
+        "fotoEmpresa": "./images/fotosEmpresas/everis.png",
+        "titulo": "Programador Web",
+        "horas": "40",
+        "descripcion": "Buscamos programador web para trabajar a tiempo completo (40 horas) en la empresa Everis, de lunes a viernes de 10:00h a 19:30h con media hora de descanso.",
+        "salario": 1300,
+        "duracion": "indefinido"
+      },
+      {
+        "id": 3,
+        "fotoEmpresa": "./images/fotosEmpresas/everis.png",
+        "titulo": "Analista Funcional",
+        "horas": "40",
+        "descripcion": "Buscamos analista para trabajar a tiempo completo (40 horas) en la empresa Everis, de lunes a viernes de 7:00h a 16:00h con una hora de descanso.",
+        "salario": 1700,
+        "duracion": "indefinido"
+      },
+      {
+        "id": 4,
+        "fotoEmpresa": "./images/fotosEmpresas/astron.png",
+        "titulo": "Técnico SI",
+        "horas": "40",
+        "descripcion": "Buscamos técnico de sistemas informáticos con experiencia para trabajar a tiempo completo (40 horas) en la empresa Astron S.L, horario a negociar con la empresa.",
+        "salario": 1400,
+        "duracion": "indefinido"
+      },
+      {
+        "id": 5,
+        "fotoEmpresa": "./images/fotosEmpresas/phalcon.png",
+        "titulo": "Jefe de Departamento",
+        "horas": "40",
+        "descripcion": "Buscamos jefe de proyecto a tiempo completo (40 horas) en la empresa Phalcon, de lunes a viernes de 8:00h a 17:00h con una hora de descanso.",
+        "salario": 1700,
+        "duracion": "indefinido"
+      },
+      {
+        "id": 6,
+        "fotoEmpresa": "./images/fotosEmpresas/astron.png",
+        "titulo": "Auxiliar SI",
+        "horas": "40",
+        "descripcion": "Buscamos auxiliar de sistemas informáticos para trabajar a tiempo completo (40 horas) en la empresa Astron S.L, horario a negociar con la empresa.",
+        "salario": 1000,
+        "duracion": "indefinido"
+      }
+      
+    ],
+    
+    "tiempoParcial": [
+      {
+        "id": 7,
+        "fotoEmpresa": "./images/fotosEmpresas/prismalia.png",
+        "titulo": "Diseñador Web",
+        "horas": "20",
+        "descripcion": "Buscamos diseñador web para trabajar a tiempo parcial (20 horas) en la empresa Everis, de lunes a viernes de 17:00h a 21:00h.",
+        "salario": 500,
+        "duracion": "indefinido"
+      },
+      {
+        "id": 8,
+        "fotoEmpresa": "./images/fotosEmpresas/codisys.jpg",
+        "titulo": "Soporte Técnico",
+        "horas": "25",
+        "descripcion": "Buscamos personal para trabajar en Soporte Técnico a tiempo completo (25 horas) en la empresa Codisys, de lunes a viernes de 16:00h a 21:00h.",
+        "salario": 650,
+        "duracion": "indefinido"
+      },
+      {
+        "id": 9,
+        "fotoEmpresa": "./images/fotosEmpresas/everis.png",
+        "titulo": "Desarrollador JR",
+        "horas": "25",
+        "descripcion": "Buscamos desarrollador multiplataforma JR con experiencia para trabajar a tiempo parcial (25 horas) en la empresa Everis, horario a negociar con la empresa.",
+        "salario": 700,
+        "duracion": "indefinido"
+      }
+    ],
+
+    "temporal": [
+      {
+        "id": 10,
+        "fotoEmpresa": "./images/fotosEmpresas/codisys.jpg",
+        "titulo": "Soporte Técnico",
+        "horas": "30",
+        "descripcion": "Buscamos personal para soporte técnico sin experiencia para trabajar a tiempo parcial (30 horas) con contrato temporal de 3 meses en la empresa Codisys, horario de 10:00h a 16:30h, media hora descanso.",
+        "salario": 800,
+        "duracion": "3 meses"
+      },
+      {
+        "id": 11,
+        "fotoEmpresa": "./images/fotosEmpresas/prismalia.png",
+        "titulo": "Diseñador Web",
+        "horas": "40",
+        "descripcion": "Buscamos diseñador web sin experiencia para trabajar a tiempo completo (40 horas) con contrato temporal de 9 meses en la empresa Prismalia, horario de 10:00h a 18:30h, media hora descanso.",
+        "salario": 1200,
+        "duracion": "9 meses"
+      },
+      {
+        "id": 12,
+        "fotoEmpresa": "./images/fotosEmpresas/astron.png",
+        "titulo": "Técnico SI",
+        "horas": "35",
+        "descripcion": "Buscamos técnico en sistemas informáticos para trabajar en la empresa ASTRON S.L, contrato de 35 horas/mes, horario a negociar con la empresa.",
+        "salario": 700,
+        "duracion": "6 meses"
+      },
+      {
+        "id": 13,
+        "fotoEmpresa": "./images/fotosEmpresas/everis.png",
+        "titulo": "Desarrollador FrontEnd",
+        "horas": "25",
+        "descripcion": "Buscamos desarrollador FrontEnd JR con experiencia en Javascript para trabajar a tiempo parcial (25 horas) en la empresa Everis, horario a negociar con la empresa.",
+        "salario": 700,
+        "duracion": "6 meses"
+      }
+    ]
+}

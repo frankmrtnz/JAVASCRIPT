@@ -1,0 +1,45 @@
+// ejercicio 2: uso de jquery load()
+load(url,[datosPetición],[referenciaFunciónCompletada(responseText,textStatus,XHR)])
+
+// index.html
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>jQuery</title>
+
+    <style>
+
+    </style>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script>
+
+        $(document).ready(function () {
+            $('div#respuesta').load('respuesta.html #ajax', gestionarRespuesta);
+        });
+
+
+
+        function gestionarRespuesta(textoRespuesta, textoEstado, XHR) {
+            if (textoEstado != 'success' && textoEstado != 'notmodified') {
+                $('div#respuesta').html('Se ha producido un <strong>error</strong>')
+            } else {
+                console.log('Respuesta recibida correctamente');
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div id='respuesta'></div>
+
+</body>
+
+</html>

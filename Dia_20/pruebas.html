@@ -1,0 +1,23 @@
+<head>
+    <title>DOM</title>
+    <script>
+        function cambiarIdioma(idiomaElegido) {
+            var fecha = new Date();
+            fecha.setTime(fecha.getTime() + (7 * 24 * 60 * 60 * 1000));
+            document.cookie = 'idioma=' + idiomaElegido + ';expires=' + fecha.toUTCString();
+        }
+    </script>
+</head>
+
+<body>
+    <label for='idioma'>Idioma: </label>
+    <select id='idioma' onchange="cambiarIdioma(this.value)">
+        <option value='indiferente'>Indiferente</option>
+        <option value='castellano'>Castellano</option>
+        <option value='ingles'>Ingl&eacute;s</option>
+    </select>
+    <br />
+    <button type='button' onclick='alert(document.cookie);'>Ver cookies</button>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+
+id
+nombre
+descripcion
+fechaInicio
+fechaFin
+presupuestoInicial
+presupuestoActual
+cliente
+listaEmpleados
+estado
+modificaciones

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM</title>
+<style>
+div#divCartelera img{
+width: 100px;
+height: 100px
+}
+.centrada{
+position: absolute; 
+top: 50%; 
+left: 50%; 
+transform: translate(-50%,-50%);
+border: 2px solid black;
+z-index:2;
+background-color: white;
+width: 200px;
+}
+img.foto{
+width: 180px;
+height: 180px
+}
+img.boton{
+width: 30px;
+height: 30px
+}
+div#cartelera{
+display:flex;
+justify-content: center;
+width: 600px;
+}
+div#carrito{
+width: 50px;
+height: 50px;
+position:absolute;
+top:0px;
+left:500px;
+background-image: url("carrito.png");
+background-size: cover;
+}
+div#carrito span{
+background-color: white;
+}
+div#detalleCarrito{
+width: 200px;
+height: 200px;
+position:absolute;
+top:60px;
+left:500px;
+z-index:2;
+display:none;
+overflow: scroll;
+}
+
+.child {
+float: left;
+width: 200px;
+height: 200px;
+margin: 10px;
+}
+</style>
+<script src="jquery.js"></script>
+<script type="module" src="aterrizaje.js"></script>
+</head>
+<body>
+<div id="carrito">
+</div>
+<div id="detalleCarrito">
+</div>
+<div id="divCartelera">
+</div>
+</body>
+</html>

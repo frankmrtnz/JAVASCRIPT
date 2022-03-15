@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery</title>
+    <style>
+        td {
+            text-align: center;
+        }
+
+        .sube {
+            background-color: lime;
+        }
+
+        .baja {
+            background-color: red;
+        }
+    </style>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script>
+        var idTimeout;
+        var empresas = ['ABG', 'TEF', 'SAB', 'EAD'];
+        function activarDesactivar(jqEvento) {
+            switch ($(this).attr('id')) {
+                case 'activar':
+                    $('#activar').prop('disabled', true);
+                    $('#desactivar').prop('disabled', false);
+                    idTimeout = window.setTimeout(realizarPeticion, 3000);
+                    break;
+                case 'desactivar':
+                    $('#activar').prop('disabled', false);
+                    $('#desactivar').prop('disabled', true);
+                    window.clearTimeout(idTimeout);
+                    break;
+            }
+        }
+        function realizarPeticion() {
+            var empresaElegida = empresas[Math.floor(Math.random() * empresas.length)];
+            $.post('cotizaciones.php', { empresa: empresaElegida }, gestionarExito, 'xml')
+                .complete(gestionarPeticionCompleta);
+        }
+        function gestionarExito(datosRecibidos, textoEstado, jqXHR) {
+            var empresa = $(datosRecibidos).find('empresa').text();
+            var valor = $(datosRecibidos).find('valor').text();
+            var celda = $('#' + empresa);
+            celda.hide();
+            if (Number(celda.text()) < Number(valor)) {
+                celda.removeClass('baja');
+                celda.addClass('sube');
+            } else {
+                celda.removeClass('sube');
+                celda.addClass('baja');
+            }
+            celda.text(valor).fadeIn(1000);
+        }
+        function gestionarPeticionCompleta(jqXHR, textoEstado) {
+            idTimeout = window.setTimeout(realizarPeticion, 3000);
+        }
+        $(document).ready(function () {
+            $('#activar').on('click', activarDesactivar);
+            $('#desactivar').on('click', activarDesactivar);
+        });
+    </script>
+</head>
+
+<body>
+    <button id='activar'>Activar actualizaci&oacute;n</button>
+    <button id='desactivar' disabled='disabled'>Desactivar actualizaci&oacute;n</button>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>ABG</th>
+                <th>TEF</th>
+                <th>SAB</th>
+                <th>EAD</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id='ABG'>---</td>
+                <td id='TEF'>---</td>
+                <td id='SAB'>---</td>
+                <td id='EAD'>---</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

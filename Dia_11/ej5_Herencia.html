@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJ5-Herencia</title>
+</head>
+<body>
+    <script>
+
+    class Animal {
+    constructor(nombre,edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    hablar() {
+        console.log(this.nombre + ' hace un ruido.');
+    }
+    }
+
+    class Perro extends Animal {
+    hablar() {
+        super.hablar();
+        console.log(this.nombre) + ' ladra.';
+    }
+    }
+
+    var perro1 = new Perro('cosquillas','16 años');
+    for(propiedad in perro1) {
+        console.log(propiedad + " el valor es " + perro1[propiedad]);
+    }
+
+
+    </script>
+</body>
+</html>

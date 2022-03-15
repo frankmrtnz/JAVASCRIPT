@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script>
+
+        // window.onload = function() {}
+        $(document).ready(function () {
+            $.getJSON("consultaTodosLibros.php",
+            { },
+            function (listaLibros) {
+                //console.log(listaDatos);
+                pintarTablaLibros(listaLibros);
+                pintarSelectLibros(listaLibros);
+            });
+        });
+
+        function pintarTablaLibros(lista) {
+                var tabla = document.createElement("table");
+                document.body.appendChild(tabla);
+                tabla.style.border = "1px solid black";
+                tabla.style.textAlign = "center";
+
+                var fila = document.createElement("tr");
+                tabla.appendChild(fila);
+                
+                var celda1 = document.createElement("th");
+                fila.appendChild(celda1);
+                celda1.style.border="1px solid black";
+                celda1.innerHTML = "Libro ISBN";
+
+                var celda2 = document.createElement("th");
+                fila.appendChild(celda2);
+                celda2.style.border="1px solid black";
+                celda2.innerHTML = "Libro Título";
+
+                var celda3 = document.createElement("th");
+                fila.appendChild(celda3);
+                celda3.style.border="1px solid black";
+                celda3.innerHTML = "Libro Autor";
+
+        
+                var celda4 = document.createElement("th");
+                fila.appendChild(celda4);
+                celda4.style.border="1px solid black";
+                celda4.innerHTML = "Fecha Libro";
+                
+
+                
+                lista.forEach(element => {
+                    var fila = document.createElement("tr");
+                    tabla.appendChild(fila);
+
+                    var celda1 = document.createElement("td");
+                    fila.appendChild(celda1);
+                    celda1.style.border="1px solid black";
+                    celda1.innerHTML = element.libro_isbn;
+
+                    var celda2 = document.createElement("td");
+                    fila.appendChild(celda2);
+                    celda2.style.border="1px solid black";
+                    celda2.innerHTML = element.libro_titulo;
+                    
+                    var celda3 = document.createElement("td");
+                    fila.appendChild(celda3);
+                    celda3.style.border="1px solid black";
+                    celda3.innerHTML = element.libro_autor;
+
+                    var celda4 = document.createElement("td");
+                    fila.appendChild(celda4);
+                    celda4.style.border="1px solid black";
+                    celda4.innerHTML = element.libro_fecha;
+                });
+        }
+
+
+
+        function pintarSelectLibros(lista) {
+            document.body.innerHTML+="<br>";
+            var select = document.createElement("select");
+            document.body.appendChild(select);
+            lista.forEach(element =>{
+                var opt = document.createElement("option");
+                select.appendChild(opt);
+                opt.innerHTML = `${element.libro_titulo} (ISBN:${element.libro_isbn})`;
+                opt.addEventListener("click", function() {
+                    alert("Autor: "+element.libro_autor);
+                }); 
+            });
+        }
+
+
+        
+    </script>
+</head>
+<body>
+    
+
+</body>
+</html>

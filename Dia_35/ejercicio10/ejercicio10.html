@@ -1,0 +1,93 @@
+// ejercicio 10: jquery ajax método $.getScript()
+
+$.getScript(url,[gestionarExito(datosRecibidos,textStatus,jqXHR)])
+
+
+
+
+
+// index.html
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>HTML5</title>
+
+    <!--<link rel="stylesheet" href="css/main.css" type="text/css">-->
+
+    <style>
+
+    </style>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('button').on('click', obtenerInformacion);
+
+        });
+
+        function obtenerInformacion(jqEvento) {
+
+            $.getScript('http://js.maxmind.com/js/geoip.js', gestionarExito);
+
+        }
+
+        function gestionarExito() {
+
+            var codigo_pais = geoip_country_code();
+            var nombre_pais = geoip_country_name();
+            var ciudad = geoip_city();
+            var region = geoip_region();
+            var nombre_region = geoip_region_name();
+            var latitud = geoip_latitude();
+            var longitud = geoip_longitude();
+            var codigo_postal = geoip_postal_code();
+            var urlImagen = 'http://maps.google.com/maps/api/staticmap?center=' +
+                latitud + ',' + longitud +
+                '&sensor=false&size=400x400&maptype=roadmap' +
+                '&markers=color:blue|label:A|' + latitud +
+                ',' + longitud + '&zoom=10';
+
+
+                
+            $('#ubicacion').children('img').remove().end().prepend($('<img src="' + urlImagen + '"/>'));
+
+
+            var informacion = 'C&oacute;digo pa&iacute;s: ' + codigo_pais +
+                '<br />Nombre pa&iacute;s: ' + nombre_pais +
+                '<br />Ciudad: ' + ciudad +
+                '<br />Regi&oacute;n: ' + region +
+                '<br />Nombre regi&oacute;n: ' + nombre_region +
+                '<br />Latitud: ' + latitud +
+                '<br />Longitud: ' + longitud +
+                '<br />C&oacute;digo postal: ' + codigo_postal;
+
+            $('#informacion').html(informacion);
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <button>Pulse este bot&oacute;n si quiere obtener información sobre su ubicaci&oacute;n</button>
+
+    <div id='ubicacion'>
+
+        <div id='informacion' style='display: inline-block;'></div>
+
+    </div>
+
+</body>
+
+</html>

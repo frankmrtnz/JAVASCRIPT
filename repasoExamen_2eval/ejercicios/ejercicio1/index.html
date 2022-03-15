@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML5</title>
+    <!--<link rel="stylesheet" href="css/main.css" type="text/css">-->
+    <style>
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+    </style>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script>
+        //Es recomendable escribir $.ajaxSetup({ cache: false }); 
+        //al inicio para que no cachee la petición a datos.
+        $.ajaxSetup({ cache: false });
+        function enviarPeticion(evento) {
+            $.ajax({
+                "url": "ejemploAjax.php",
+                "method": "get",
+                "dataType": "text",
+                "data": { "operacion": evento.data.tipoOperacion },
+                "success": function (dato) {
+                    alert(dato); //prueba a cambiar dataType a json y mira que sale
+                }
+            });
+        }
+        $(document).ready(enviarPeticion);
+    </script>
+
+<body>
+    <h1>EJEMPLO AJAX</h1>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+//EJEMPLO SIN WORKER
+
+// Fijate que el navegador llega un momento que se bloquea y que no puedes hacer
+
+// click en el botón
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calcular número primo con Web Workers</title>
+</head>
+<body>
+<h1>Vamos a esperar la respuesta del Web Worker</h1>
+<p>El botón de abajo es para demostrar que podemos hacer click porque no es código bloqueante</p>
+<button type="button" onclick="alert('HOLA');">Soy un botón y puedes hacerme click cuando quieras</button>
+<p id="resultados">Aquí aparecerá el mensaje</p>
+</body>
+<script>
+var limite = 500000;
+var mayorEncontradoHastaElMomento = 0;
+function esPrimo(numero) {
+     for (var i = 2; i < numero; i++) {
+        if (numero % i === 0) {
+          return false;
+        }
+     }
+     return numero !== 1;
+}
+for(var x = 0; x < limite; x++){
+    if(esPrimo(x)){
+      mayorEncontradoHastaElMomento = x;
+     }
+}
+document.getElementById("resultados").innerHTML ="Hola. El número primo más grande menor que " + limite.toString() + " es " + mayorEncontradoHastaElMomento.toString();
+</script>
+</html>

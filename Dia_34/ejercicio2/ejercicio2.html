@@ -1,0 +1,67 @@
+// ejercicio 2: modificar el ejercicio anterior para comprobar el valor devuelto
+
+
+
+// Sustituye la linea xhr.open('GET','ajax.php',true);  por xhr.open('GET','ajax2.php',true);
+
+// de esta forma devolverá el error
+
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>AJAX</title>
+
+    <style></style>
+
+    <script>
+
+        var xhr;
+
+        function enviarPeticionAJAX(evento) {
+            evento.target.disabled = true;
+            xhr = new XMLHttpRequest();
+            xhr.addEventListener('readystatechange', gestionarRespuesta);
+            xhr.open('GET', 'ajax2.php', true);
+            xhr.send(null);
+        }
+
+        function gestionarRespuesta(evento) {
+                if (evento.target.readyState == 4) {
+                    if (evento.target.status >= 200 && evento.target.status <= 304) {
+                        document.getElementById('encabezados').innerHTML = evento.target.getAllResponseHeaders();
+                        document.getElementById('contenido').innerHTML = evento.target.responseText;
+                        document.getElementById('boton').disabled = false;
+                    } else {
+                        alert('Error de comunicaci\u00f3n\n' + evento.target.statusText);
+                        document.getElementById('boton').disabled = false;
+                    }
+
+                }
+
+}
+
+    </script>
+
+</head>
+
+<body>
+    <br>
+    
+    <button id='boton' type='button' onclick='enviarPeticionAJAX(event);'>ENVIAR PETICI&Oacute;N</button>
+
+    <h1>Encabezados respuesta</h1>
+
+    <div id='encabezados'></div>
+
+    <h1>Contenido respuesta</h1>
+
+    <div id='contenido'></div>
+
+</body>
+
+</html>

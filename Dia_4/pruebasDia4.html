@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas Dia 4</title>
+    <script>
+        /* ejercicio 1: Dada la página html anterior modifica el código para que 
+        al pulsar el botón se muestre una alerta con el texto "MUY GRANDE" si la caja 
+        frase1 tiene más de 20 caracteres */
+        function comprobarLongitud(){
+            var contenido = document.getElementById("frase1").value;
+            if(contenido.length >= 20){
+                alert("MUY GRANDE");
+            } else {
+                alert("PERFECTO");
+            }
+        }
+
+        /* ejercicio 2: Dada la página html anterior crea un botón nuevo que al pulsarlo 
+        muestre si la caja frase2 contiene el texto "aprobado" */
+       function comprobarAprobado(){
+            var contenido = document.getElementById("frase2").value;
+            if(contenido.indexOf("aprobado") != -1){
+                alert("Sí contiene el texto 'aprobado'");
+            } else {
+                alert("No contiente el texto 'aprobado'");
+            }
+       }
+
+       /* ejercicio 4: Dada la página html anterior crea un botón 
+       nuevo que al pulsarlo muestre cuantas veces aparece el texto "aprobado" en la caja frase1 */
+       function contarAprobados(){
+            var contenido = document.getElementById("frase1").value;
+            var contador = 0;
+            var posicion = 0;
+
+        while(posicion != -1 && posicion < contenido.length) {    
+            posicion = contenido.indexOf("aprobado",posicion);
+            if(posicion != -1){
+                contador++;
+                posicion = posicion + 8;
+            } 
+        }
+            alert("Aparece "+contador+" veces");
+       }
+
+    </script>
+</head>
+<body>
+    <H1> USO DE STRINGS</H1>
+    <span>FRASE1: </span><input type="Text" id="frase1"><br/>
+    <span>FRASE2: </span><textarea id="frase2"></textarea><br/>
+    <button type="button" onclick="comprobarLongitud()">PULSAME</button>
+    <button type="button" onclick="comprobarAprobado()">PULSAME 2</button>
+    <button type="button" onclick="contarAprobados()">PULSAME 4</button>
+</body>
+</html>

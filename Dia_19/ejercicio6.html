@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM</title>
+<style> 
+#miNombre{
+position: absolute;
+text-align: center;
+vertical-align: middle;
+width: 200px;
+height: 50px;
+background: greenyellow;
+}
+
+</style>
+<script>
+
+function actualizarPosicion(){
+  var nombre = document.getElementById('miNombre');
+ nombre.style.left = Math.floor(Math.abs((window.innerWidth-200)/2 * (Math.cos(angulo)-1)))+'px';
+angulo += 100/(window.innerWidth-200);
+if(angulo >= 2 * Math.PI){
+angulo = 0;
+}
+}
+
+var angulo = 0;
+var idIntervalo = window.setInterval(actualizarPosicion,100);
+</script>
+</head>
+<body>
+<button onclick='window.clearInterval(idIntervalo);'>PARAR</button>
+<button onclick=' window.clearInterval(idIntervalo);idIntervalo = window.setInterval(actualizarPosicion,100);'>INICIAR</button>
+<div id='miNombre'><p>JUANFE</p></div>
+</body>
+</html>

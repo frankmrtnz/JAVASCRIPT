@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Prueba</title>
+    <script>
+class FechaHoy extends HTMLElement {
+  constructor() {
+    super();    //Llama al constructor de la clase de la que hereda
+    let shadowRoot = this.attachShadow({mode: 'open'});
+    shadowRoot.innerHTML = `
+	  <style>
+      div {
+        font-size: 0.8em;
+        color: blue;
+      }
+      </style>
+      <div>${this.fecha()}</div>`;
+  }
+
+
+  fecha() {
+    var today = new Date();
+    var dia = String(today.getDate());
+    var mes = String(today.getMonth() + 1); //January is 0!
+    var ano = today.getFullYear();
+    return `${dia}/${mes}/${ano}`;
+  }
+}
+window.customElements.define('fecha-hoy', FechaHoy);
+    </script>
+  </head>
+  <body>
+  HOY ES <fecha-hoy></fecha-hoy>
+  </body>
+</html>

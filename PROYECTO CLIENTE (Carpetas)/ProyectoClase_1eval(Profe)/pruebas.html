@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+<style>
+td {
+border: 2px solid black;
+width: 100px;
+}
+</style>
+<script>
+window.onload=function () {
+    var i=0;
+    
+    document.getElementById("boton1")
+            .addEventListener("click",mostrarMensaje);
+    document.getElementById("boton1").dataTexto = i;
+
+
+    i=10000;    
+    document.getElementById("boton2")
+            .addEventListener("click",mostrarMensaje);
+    document.getElementById("boton2").dataTexto = i;
+
+
+    i=1000000;
+}
+
+function mostrarMensaje(){
+    alert(event.target.dataTexto);
+    
+}
+</script> 
+</head> 
+<body> 
+<button id="boton1">Boton 1</button>
+<button id="boton2">Boton 2</button>
+
+</body>
+
+
+
+
+
+
+
+
+ 

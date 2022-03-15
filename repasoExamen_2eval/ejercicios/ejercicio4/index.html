@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script>
+        $(document).ready(function () {
+            console.log("a");
+            // pintarLibros();
+            console.log("b");
+            $.get('consulta.php',{},function(libros){
+                listaLibros = libros;
+                    // listaLibros = JSON.parse(libros);
+                    pintarTabla(libros);
+                    pintarSelect(libros);            
+            }, "json");
+        })
+
+        // async function pintarLibros() {
+        //     try {
+        //         console.log("c");
+        //         const respuesta = await fetch("consulta.php");
+        //         console.log("d");
+        //         console.log(respuesta);
+        //         const libros = await respuesta.json();
+        //         console.log("e");
+        //         pintarTabla(libros);
+        //         pintarSelect(libros);
+        //     } catch (err) {
+
+        //     }
+        // }
+
+        function pintarSelect(lista) {
+            select = $("<select id='select'></select>").appendTo("body");
+            $(lista).each(function (key, libro) {
+                $("<option></option>").html(libro.libro_titulo)
+                    .click(function () {
+                        alert("Autor: " + libro.libro_autor)
+                    })
+                    .appendTo(select);
+            })
+        }
+        function pintarTabla(lista) {
+            tabla = $("<table border='1px' id='tabla'></table>").appendTo("body");
+            $(lista).each(function (key, value) {
+                var $fila = $("<tr></tr>").appendTo(tabla);
+                $("<td>" + value.libro_isbn + "</td> <td>" + value.libro_titulo + "</td> <td>" + value.libro_autor + "</td> <td>" + value.libro_fecha + "</td>").appendTo($fila);
+                $("<td><span style='cursor:pointer;'>Eliminar</span></td>").click({"libroAEliminar":value, "fila":$fila}, eliminar).appendTo($fila);
+                // fila = $("<tr></tr>").html("<td>" + value.libro_isbn + "</td> <td>" + value.libro_titulo + "</td> <td>" + value.libro_autor + "</td> <td>" + value.libro_fecha + "</td>").append("<td><span style='cursor:pointer;'>Eliminar</span></td>").click({"libroAEliminar":value, "fila":fila)}, eliminar)
+                //     .appendTo(tabla);
+            })
+        } 
+        
+        function eliminar(event) {
+            console.log(event.data.libroAEliminar.libro_isbn);
+            console.log(event.data.fila);
+            var fila = event.data.fila;
+            console.log(listaLibros);
+            for(let i=0; i<listaLibros.length; i++) {
+                if(listaLibros[i].libro_isbn == event.data.libroAEliminar.libro_isbn) {
+                    listaLibros.splice(i,1);
+                    // fila.remove();
+                }
+            }
+            console.log(listaLibros);
+            tabla.remove();
+            select.remove();
+            $(pintarTabla(listaLibros)).appendTo("body");
+            $(pintarSelect(listaLibros)).appendTo(document.body);
+        }
+        
+        </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

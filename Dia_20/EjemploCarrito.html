@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM</title>
+    <style>
+        table,
+        th,
+        td,
+        tr {
+            border: 1px solid black;
+        }
+
+        div#barraSuperior {
+            height: 70px;
+            background-Color: orange;
+            width: 100%;
+        }
+
+        img.tabla {
+            width: 50px;
+            float: right;
+        }
+
+        img.reducida {
+            width: 20px;
+        }
+
+        div#carrito {
+            position: absolute;
+            top: 70px;
+            left: 60%;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        var carrito = [];
+        var listaChuches = [
+            {
+                "nombre": "Caramelo de cocacola",
+                "imagen": "fotocaramelo1.jpg",
+                "categoria": "azucar",
+                "precio": 1,
+            },
+            {
+                "nombre": "Caramelo de fresa",
+                "imagen": "fotocaramelo2.jpg",
+                "categoria": "sacarina",
+                "precio": 1,
+            }, {
+                "nombre": "Caramelo de coco",
+                "imagen": "fotocaramelo3.jpg",
+                "categoria": "sin azucar",
+                "precio": 5,
+            }
+        ]
+        var posicionInicial = 0;
+        var numDatosPorPagina = 10;
+        window.onload = function () {
+            cargarTabla(listaChuches, posicionInicial, numDatosPorPagina);
+            document.getElementById("imagenCarrito").addEventListener("mouseover", mostrarCarrito);
+            document.getElementById("filtro").addEventListener("keyup", filtrarPorNombre);
+            document.getElementById("filtroCategoria").addEventListener("change", filtrarPorCategoria);
+        }
+        function filtrarPorNombre() {
+            // leer el contenido de la caja de texto
+            var contenido = event.target.value;
+            var listaFiltrada = listaChuches.filter(elemento => elemento.nombre.toLowerCase().includes(contenido.toLowerCase()));
+            // cargar la  tabla con la lista filtrada
+            posicionInicial = 0;
+            cargarTabla(listaFiltrada, posicionInicial, numDatosPorPagina)
+        }
+        function filtrarPorCategoria() {
+            // leer el contenido de la caja de texto
+            var contenido = event.target.value;
+            var listaFiltrada = listaChuches.filter(elemento => elemento.categoria.toLowerCase() == contenido.toLowerCase());
+            // cargar la  tabla con la lista filtrada
+            posicionInicial = 0;
+            cargarTabla(listaFiltrada, posicionInicial, numDatosPorPagina)
+        }
+        function eliminar() {
+            var indice = event.target.dato;
+            carrito.splice(indice, 1);
+            mostrarCarrito();
+        }
+        function comprar() {
+            var nombre = event.target.dato1.nombre;
+            var cantidad = parseInt(event.target.dato2.value);
+            var producto = carrito.find(elemento => elemento.nombre == nombre);
+            if (producto) {
+                producto.cantidad += cantidad;
+            } else {
+                var
+                    compra = { "nombre": nombre, "imagen": event.target.dato1.imagen, "precio": event.target.dato1.precio, "cantidad": cantidad }
+                carrito.push(compra);
+            }
+            console.log(carrito);
+        }
+        function cargarTabla(lista, posInicial, numElementos) {
+            var tabla = document.getElementsByTagName("table")[0];
+            var listaFilas = tabla.getElementsByTagName("tr");
+            for (i = listaFilas.length - 1; i > 0; i--) {
+                listaFilas[i].remove();
+            }
+            for (i = posInicial;
+                i < lista.length && i < posInicial + numElementos; i++) {
+                var fila = document.createElement("tr");
+                tabla.appendChild(fila);
+                for (propiedad in lista[i]) {
+                    var celda = document.createElement("td");
+                    if (propiedad == "imagen") {
+                        var imagen = document.createElement("img");
+                        imagen.src = lista[i][propiedad];
+                        imagen.classList.add("tabla");
+                        celda.appendChild(imagen)
+                    } else {
+                        celda.appendChild(
+                            document.createTextNode(lista[i][propiedad]));
+                    }
+                    fila.appendChild(celda);
+                }
+                var celda = document.createElement("td");
+                var select = document.createElement("select");
+                celda.appendChild(select);
+                for (j = 1; j < 101; j++) {
+                    var option = document.createElement("option");
+                    option.appendChild(document.createTextNode(j));
+                    select.appendChild(option);
+                }
+                var boton = document.createElement("button");
+                boton.type = "button";
+                boton.dato1 = lista[i];
+                boton.dato2 = select;
+                boton.appendChild(document.createTextNode("COMPRAR"))
+                boton.addEventListener("click", comprar);
+                celda.appendChild(boton);
+                fila.appendChild(celda);
+            }
+        }
+        function mostrarCarrito() {
+            var capaCarrito = document.getElementById("carrito");
+            capaCarrito.innerHTML = "";
+            capaCarrito.style.display = "block";
+            var imgCerrar = document.createElement("img");
+            imgCerrar.src = "cerrar.png";
+            imgCerrar.id = "imgCerrar";
+            imgCerrar.classList.add("reducida");
+            capaCarrito.appendChild(imgCerrar);
+            imgCerrar.addEventListener("click", function () {
+                document.getElementById("carrito").style.display = "none";
+            });
+            var total, totaltotal = 0;
+            for (i = 0; i < carrito.length; i++) {
+                total = parseInt(carrito[i].precio) * parseInt(carrito[i].cantidad);
+                totaltotal += total;
+                var parrafo = document.createElement("p");
+                capaCarrito.appendChild(parrafo);
+                var img = document.createElement("img");
+                img.src = carrito[i].imagen;
+                img.className = "reducida";
+                parrafo.appendChild(img);
+
+                var span = document.createElement("span");
+                span.appendChild(document.createTextNode("  " + carrito[i].nombre));
+                parrafo.appendChild(span);
+                var span = document.createElement("span");
+                span.appendChild(document.createTextNode(" " + carrito[i].cantidad));
+                parrafo.appendChild(span);
+                var span = document.createElement("span");
+                span.appendChild(document.createTextNode("  " + total));
+                parrafo.appendChild(span);
+
+                var img = document.createElement("img");
+                img.src = "cerrar.png";
+                img.className = "reducida";
+                img.dato = i; img.addEventListener("click", eliminar)
+                parrafo.appendChild(img);
+
+            }
+            var parrafo = document.createElement("p");
+            capaCarrito.appendChild(parrafo);
+            var span = document.createElement("span");
+            span.appendChild(document.createTextNode("TOTAL " + totaltotal));
+            parrafo.appendChild(span);
+            var boton = document.createElement("button");
+            boton.type = "button";
+            boton.addEventListener("click", cargarPaginaCarrito);
+            boton.appendChild(document.createTextNode("FINALIZAR"));
+            parrafo.appendChild(boton);
+        }
+        function cargarPaginaCarrito() {
+            document.cookie = "compra=" + JSON.stringify(carrito);
+            location.href = "carritoFinal.html";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="barraSuperior">
+        <span>Filtro</span><input type="text" id="filtro">
+        <span>Categoria</span>
+        <select id="filtroCategoria">
+            <option value="">Escoge una</option>
+            <option>Azucar</option>
+            <option>Sacarina</option>
+            <option>Sin Azucar</option>
+        </select>
+        <img id="imagenCarrito" class="tabla" src="carrito.jpg">
+    </div>
+    <br>
+    <table>
+        <tr>
+            <th>NOMBRE</th>
+            <th>IMAGEN</th>
+            <th>CATEGORIA</th>
+            <th>PRECIO</th>
+            <th>ACCION</th>
+        </tr>
+    </table>
+    <div id="carrito"></div>
+</body>
+
+</html>

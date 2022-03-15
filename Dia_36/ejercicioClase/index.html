@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    
+    <script>
+        $(document).ready(function(){
+            console.log("a");
+            pintarLibros();
+            console.log("b");
+            // $.get('consulta.php',{},function(libros){
+            //    pintarTabla(libros);
+            //    if($("select").length==0){pintarSelect(libros)};
+            // })
+        })
+
+
+        async function pintarLibros() {
+            console.log("c");
+            const respuesta = await fetch("consulta.php");
+            console.log("d");
+            const libros = await respuesta.json();
+            console.log("e");
+            pintarTabla(libros);
+            console.log("f");
+            pintarSelect(libros);
+        }
+
+
+        //LIBROS == select (nb_libros) > click => alert(nb_Autor)  
+        function pintarSelect(lista){
+            // listaLibros = JSON.parse(lista);
+
+            document.body.innerHTML += "<br>";
+
+            select = $("<select></select>");
+            
+            $(lista).each(function(key,libro){
+               $("<option></option>").html(`${libro.libro_titulo} (ISBN: ${libro.libro_isbn})`)
+                    .click(function(){
+                        alert("Autor: "+libro.libro_autor)
+                    })
+                    .appendTo(select);
+            })
+            select.appendTo("body");
+        }
+
+
+        function pintarTabla(lista){
+            // listaLibros = JSON.parse(lista);
+            // console.log(listaLibros);
+            // .appendTo => elemnt NO existe y lo añado
+            tabla = $("<table border='1px solid black; text-align='center';'></table>").appendTo("body");
+
+            $(lista).each(function(key,value){
+                $("<tr></tr>").html("<td>"+value.libro_isbn+"</td> <td>"+value.libro_titulo+"</td> <td>"+value.libro_autor+"</td> <td>"+value.libro_fecha+"</td>")
+                    .appendTo(tabla);
+            })
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

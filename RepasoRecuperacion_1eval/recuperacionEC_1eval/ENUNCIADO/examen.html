@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #titulo {
+      width: 1000px;
+      height: 80px;
+      text-align: center;
+    }
+    .centrado{
+      width: 300px;
+      height: 500px;
+      background-color: grey;
+      border:2px solid grey;
+      /* centrar vertical y horizontalmente */
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      margin: -25px 0 0 -25px;
+    }
+
+    #accion,
+    #terror,
+    #comedia {
+      width: 300px;
+      float: right;
+      border: 2px solid grey;
+    }
+
+    #tarea,
+    #ranking {
+      border: 2px solid red;
+      width: 250px;
+      height: 220px;
+    }
+
+    #factura {
+      border: 2px solid black;
+      overflow: auto;
+      width: 250px;
+      max-height: 300px;
+      font-size: 0.875em;
+    }
+
+    h3 {
+      position: sticky;
+      text-align: center;
+    }
+
+    #central {
+      position: absolute;
+      top: 100px;
+      left: 280px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #titulo img {
+      height: 70px;
+    }
+
+    #central img,
+    img.centrada {
+      height: 200px;
+      width: 200px;
+      display: block;
+      margin: auto;
+    }
+
+    img.anuncio {
+      float: right;
+      width: 150px;
+      height: 150px;
+    }
+
+    .conborde {
+      border: 4px solid black;
+    }
+
+    div.centrada {
+      width: 400px;
+      position: absolute;
+      background-color: white;
+      text-align: center;
+      font-weight: bold;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+
+    #terror,
+    #comedia,
+    #accion {
+      height: 500px;
+      overflow-y: scroll;
+    }
+  </style>
+  <script src="datos.js"></script>
+  <script src="solucion.js"></script>
+</head>
+
+<body>
+  <input type="hidden">
+  <input type="hidden">
+  <div style="display: none;">
+    <img src="" alt="">
+  </div>
+  <div id="titulo">
+    <h1> CINEFILOS: IES EL CAÑAVERAL</h1>
+  </div>
+  <div id="tarea">
+    <h3>OPERACION</h3>
+    <input type=radio name="operacion" value='likes'><span>Likes</span><br />
+    <input type=radio name="operacion" value='dislikes'><span>DisLikes</span><br />
+    <input type=radio name="operacion" value='comentar' checked><span>Comentar</span><br />
+    <label for=txtComentario>Comentario:</label><input type=text id="txtComentario" size=16><br />
+    <label for=txtCodigo>Codigo:</label><input type=text id="txtCodigo" size=10><br />
+    <label for=txtFecha>Fecha:</label><input type=text id="txtFecha" size=10><br />
+  </div>
+  <div id="ranking">
+    <p>&nbsp;&nbsp;&nbsp;POSICION:<span>0</span></p>
+    <img src="./imagenes/cargando.gif" height="150px" width="150px" alt="cargando">
+  </div>
+  <div id="central">
+    <div id="accion">
+      <h3>ACCION</h3>
+      <img src="./imagenes/cargando.gif" height="300px" alt="cargando">
+    </div>
+    <div id="comedia">
+      <h3>COMEDIA</h3>
+      <img src="./imagenes/cargando.gif" height="300px" alt="cargando">
+    </div>
+    <div id="terror">
+      <h3>TERROR</h3>
+      <img src="./imagenes/cargando.gif" height="300px" alt="cargando">
+    </div>
+  </div>
+</body>
+
+</html>

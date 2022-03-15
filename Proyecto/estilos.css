@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body{
+    background-color: darkslateblue;
+}
+
+.navegacion{
+    width: 1000px;
+    margin: 30px auto;
+    background-color: ghostwhite;
+}
+
+.navegacion ul {
+    list-style: none;
+}
+
+.menu > li{
+    position: relative;
+    display: inline-block;
+}
+
+.menu > li > a{
+    display: block;
+    padding: 15px 84px;
+    color: darkslateblue;
+    /*font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;*/
+    text-decoration: none;
+}
+
+.menu li a:hover{
+    color: black;
+    transition: all .4s;
+}
+
+
+
+/* SUBMENU */
+
+.submenu{
+    position: absolute;
+    background-color: ghostwhite;
+    width: 100%;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.8s;
+}
+
+.submenu li a{
+    display: block;
+    padding: 15px;
+    color: darkslateblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: none;
+}
+
+/*Cuando pasemos por el li del menu hace efecto en el submenu*/
+.menu li:hover .submenu{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+/* PIE DE PAGINA */
+
+footer{
+    /*border: 1px solid grey;*/
+    background-color: black;
+    color: antiquewhite;
+    clear: both;
+    position: fixed;
+    bottom: 0px;
+    width: 101%;
+    height: 25px;
+    text-align: center;
+    font-size: small;
+    padding-top: 6px;
+    /*font-family: "Montserrat";*/
+    font-size: 10px;
+    margin-left: -8px;
+}

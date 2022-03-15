@@ -1,0 +1,29 @@
+// EL MISMO EJEMPLO CON WORKER:
+
+//archivo1.html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calcular número primo con Web Workers</title>
+</head>
+<body>
+<h1>Vamos a esperar la respuesta del Web Worker</h1>
+<p>El botón de abajo es para demostrar que podemos hacer click porque no es código bloqueante</p>
+<button type="button" onclick="alert('HOLA');">Soy un botón y puedes hacerme click cuando quieras</button>
+<p id="resultados">Aquí aparecerá el mensaje</p>
+</body>
+<script>
+//Primero vemos si el navegador lo soporta
+if("undefined" !== typeof Worker){  //comprueba que el navegador admita worker
+  var miWorker = new Worker("worker.js");
+  miWorker.postMessage(150000); // Le decimos que calcule el mayor primo menor que 150000
+  miWorker.addEventListener("message",function(evento){
+            var elemento = document.querySelector("#resultados");
+            elemento.innerHTML = evento.data;
+        });
+}
+</script>
+</html>
+

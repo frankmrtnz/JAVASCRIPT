@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="practica2.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <H1> PRACTICA 2: AGENCIA DE VIAJES</H1>
+    <div id="fechasContratacion">
+        FECHA INICIO:<input type="text" name="fechaInicio"><br />
+        FECHA FIN:<input type="text" name="fechaFin"><br />
+        <button type="button" onclick="comprobarFechas()">COMPROBAR</button>
+    </div>
+    <br>
+    <div id="tablaCiudades"
+        style="width: 660px;height: 200px;overflow-x:hidden;overflow-y: scroll;display:inline-block;">
+    </div>
+    <br><br>
+    <input type="button" value="ORDENAR POR NOMBRE" onclick="ordenarPorNombre()">
+    <input type="button" value="ORDENAR POR PRECIO ASC" onclick="ordenarPorPrecioAsc()">
+    <input type="button" value="ORDENAR POR PRECIO DESC" onclick="ordenarPorPrecioDesc()"><br />
+
+    <input type="button" value="FILTRAR POR PRECIO" onclick="filtrar('precio')">
+    <select id="precio">
+        <option value="1">Menos de 1000</option>
+        <option value="2">Entre 1000 y 2000</option>
+        <option value="3">Mas de 2000</option>
+    </select><br>
+    <input type="button" value="FILTRAR POR DISTANCIA" onclick="filtrar('distancia')">
+    <input type="radio" name="distancia" value="1">Menos de 1000 Km
+    <input type="radio" name="distancia" value="2">Entre 1000 y 2000 Km
+    <input type="radio" name="distancia" value="3">Más de 2000 Km<br>
+    <input type="button" value="FILTRAR POR PAIS" onclick="filtrar('pais')">
+    PAIS:<input type="text" id="pais"><br />
+    <input type="button" value="MOSTRAR RUTA" onclick="mostrarRuta()"><br />
+    <div id="rutaCiudades"></div>
+</body>
+
+</html>

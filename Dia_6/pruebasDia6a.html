@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas Dia 6</title>
+
+  
+</head>
+<body>
+
+    <script>
+        /*
+        function ordenarNumericamente(a,b){
+            if (a>b) return 1;
+            else return -1;
+        }
+        */
+
+        var listaNombres = ["Pedro","Pablo","Jose","Ana","Felix"];
+        /*
+        console.log(listaNombres.join("-"));
+        listaNombres.sort();   //Ordena la lista alfabeticamente en este caso
+        console.log(listaNombres.join("-"));
+
+        
+        var listaNumeros = [123,2,345,55,9];
+        console.log(listaNumeros.join("-"));
+        //listaNumeros.sort(ordenarNumericamente);  //Solo poner nombre de la función sin ()   
+        //listaNumeros.sort(function (a,b) {return a-b;})   //Lo mismo que la anterior pero más reducido
+        //listaNumeros.sort((a,b) => a-b).reverse();    //Ordenar numericamente a la reversa(enlazamos metodo con otro metodo)
+        listaNumeros.sort((a,b) => a-b);
+        console.log(listaNumeros.join("-"));
+        */
+
+
+        /*
+        function crearParrafo(texto) {
+            var parrafo = document.createElement("p");
+            parrafo.appendChild(document.createTextNode(texto));  //Añade al parrafo el texto (sin sustituir)
+            //parrafo.innerHTML=texto;   //Sustituye lo que tenga en el parrafo por el texto
+            document.body.appendChild(parrafo);
+        }
+
+       // listaNombres.forEach(crearParrafo);
+        listaNombres.sort().reverse().forEach((texto)=>{
+            var parrafo = document.createElement("p");
+            parrafo.appendChild(document.createTextNode(texto));  //Añade al parrafo el texto (sin sustituir)
+            document.body.appendChild(parrafo);
+        });
+        */
+
+        
+        /*
+        //METODO MAP
+        console.log(listaNombres.join("-"));
+
+        var listaNueva = listaNombres.map((elemento,indice,lista) => "Nombre:" + elemento);   //Añade antes del elemento la palabra "Nombre:"  (Hay que hacer lista nueva)
+        console.log(listaNueva.join("-"));
+        */
+
+
+
+        //METODO FILTER
+        var listaNumeros = [23,45,12,3,9];
+        var listaNumerosBajos = listaNumeros.filter((elemento) => elemento < 10);
+        console.log(listaNumerosBajos.join("-"));
+
+
+
+    </script>
+
+</body>
+</html>

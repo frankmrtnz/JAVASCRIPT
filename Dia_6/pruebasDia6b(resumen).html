@@ -1,0 +1,157 @@
+// ejercicio 1: definir un array, acceder a los elementos y uso de métodos
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="">
+
+<script>
+var valores = [];
+valores[0] = "Primavera";
+valores[2] = 34;
+valores[3] = true;
+console.log(valores.length);
+console.log(valores);
+
+var diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+var frutas = new Array();
+var meses = new Array(12);
+var diasMes = new Array(31,"depende",31,30,31,30,31,31,30,31,30,31);
+meses[0]="Enero";
+meses[1]="Febrero";
+meses[2]="Marzo";
+meses[3]="Abril";
+meses[4]="Mayo";
+meses[5]="Junio";
+meses[6]="Julio";
+meses[7]="Agosto";
+meses[8]="Septiembre";
+meses[9]="Octubre";
+meses[10]="Noviembre";
+meses[11]="Diciembre";
+
+console.log(valores.join("-"));  //Lo convierte a texto, pero añadiendo separador
+console.log(diasSemana);
+console.log(meses.toString());   //Lo convierte a texto String
+
+
+// METODOS
+//------------------------------------------------------------------------------------
+console.log("USO DE toString"); // CONVERTIR ARRAY EN STRING
+console.log(meses.toString());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE push");// AÑADIR UN ELEMENTO AL FINAL DEL ARRAY
+//unshift hace lo mismo pero al principio de la lista
+meses.push("OTRO MES");
+console.log(meses.toString());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE pop");// ELIMINAR EL ULTIMO ELEMENTO DEL ARRAY
+//shift hace lo mismo pero al principio de la lista
+console.log(meses.pop());
+console.log(meses.toString());
+
+
+//------------------------------------------------------------------------------------
+console.log("USO DE concat");// DEVUELVE UN ARRAY UNIENDO DOS LISTAS(Arrays)
+todo=meses.concat(diasSemana);
+todo=[...meses,...diasSemana]; //SIMILAR
+console.log(todo.toString());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE every"); //DEVUELVE false SI ALGUN ELEMENTO DEL ARRAY DEVUELVE FALSE AL PASARLE LA FUNCION, SINO TRUE
+
+function esTextoMuyGrande(elemento){
+return elemento.length > 20;
+}
+console.log(diasSemana.every(esTextoMuyGrande));
+console.log(diasSemana.every(elemento => elemento.length > 20)); //El mismo .every pero con funciones flecha
+
+//------------------------------------------------------------------------------------
+console.log("USO DE fill");  // RELLENA/SUSTITUYE TODOS LOS ELEMENTOS DEL ARRAY CON UN VALOR FIJO
+
+todo.fill("HOLA");
+console.log(todo.toString());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE filter"); // DEVUELVE UN ARRAY CON TODOS LOS ELEMENTOS QUE CUMPLAN LA FUNCION
+
+function empiezaPorA(elemento){
+return elemento.charAt(0).toUpperCase() == "A";
+}
+listaFiltrada=meses.filter(empiezaPorA);
+console.log(listaFiltrada);
+console.log(listaFiltrada.filter(elemento => elemento.charAt(0).toUpperCase() == "A")); //Hecho con expresiones flecha
+
+//------------------------------------------------------------------------------------
+console.log("USO DE forEach");  // APLICA UNA FUNCION A CADA ELEMENTO DEL ARRAY, DICHA FUNCION RECIBE EL INDICE, EL VALOR DEL ELEMENTO Y EL PROPIO ARRAY
+
+function mostrarEnMinuscula(elemento,indice){
+console.log("en la posición " + indice + " hay " + elemento.toLowerCase());
+}
+diasSemana.forEach(mostrarEnMinuscula);
+
+//------------------------------------------------------------------------------------
+console.log("USO DE indexOf");  // DEVUELVE LA PRIMERA POSICION DEL ARRAY IGUAL AL VALOR BUSCADO
+console.log(diasSemana.indexOf("Martes"));
+
+//------------------------------------------------------------------------------------
+console.log("USO DE isArray");  // DEVUELVE TRUE SI EL ELEMENTO ES UN ARRAY
+console.log(Array.isArray(diasSemana));
+console.log(Array.isArray(15));
+
+//------------------------------------------------------------------------------------
+console.log("USO DE join");    // CONVIERTE UN ARRAY A STRING PERMITIENDO RECIBIR UN STRING SEPARADOR DE VALORES
+console.log(diasSemana.join("-"));
+
+//------------------------------------------------------------------------------------
+console.log("USO DE map");      // DEVUELVE UN ARRAY QUE RESULTA DE APLICAR UNA FUNCIÓN A CADA ELEMENTO DEL ARRAY ORIGINAL
+function pasarAMayuscula(elemento){
+return elemento.toUpperCase();
+}
+diasEnMayuscula=diasSemana.map(pasarAMayuscula);
+console.log(diasEnMayuscula.toString());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE reverse");  // DEVUELVE EL ARRAY AL REVES
+console.log(meses.reverse());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE unshift");  // AÑADE UN ELEMENTO EN LA PRIMERA POSICION DEL ARRAY
+meses.unshift("otro");
+console.log(meses.toString());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE shift"); //ELIMINA EL PRIMER ELEMENTO DE UN ARRAY
+meses.shift();
+console.log(meses.toString());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE slice");  // DEVUELVE UN NUEVO ARRAY CON LAS POSICIONES SELECCIONADAS SIN INCLUIR LA ULTIMA
+mesesDeVerano=meses.slice(5,8);
+console.log(mesesDeVerano.toString());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE sort");  // ORDENA UN ARRAY
+meses.sort();
+console.log(meses.toString());
+var listaNumeros=[3,22,1,88,123];
+listaNumeros.sort((a,b)=>a-b);
+console.log(listaNumeros.toString());
+
+//------------------------------------------------------------------------------------
+console.log("USO DE splice");  // ELIMINA ELEMENTOS DEL ARRAY si el segundo parámetro es mayor que 0, si es 0 añade en dicha posición
+mesesDeVerano.splice(1,2);
+console.log(mesesDeVerano.toString());
+mesesDeVerano.splice(1,0,"Otro");
+console.log(mesesDeVerano.toString());
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
